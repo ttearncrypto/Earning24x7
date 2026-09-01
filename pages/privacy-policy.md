@@ -1,9 +1,9 @@
-﻿---
+---
 layout: default
 title: "Privacy Policy for Earning24x7 by TTEarnCrypto"
 description: "Read the Earning24x7 by TTEarnCrypto privacy policy covering data collection, cookies, advertising, analytics, and your rights."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
+image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>Privacy Policy for Earning24x7 by TTEarnCrypto</h1>
 
@@ -14,9 +14,9 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
 <h2>Information We Collect</h2>
 <p>We keep data collection to the minimum needed to run the Site:</p>
 <ul>
-  <li><strong>Information you provide</strong> â€” for example, your name and email address when you contact us or submit feedback.</li>
-  <li><strong>Usage information</strong> â€” pages visited, browser type, device, and referring pages, collected through analytics and hosting logs. This is aggregate data used to understand how readers use the Site.</li>
-  <li><strong>Cookies and similar technologies</strong> â€” small files stored on your device to improve your experience and support advertising (see below).</li>
+  <li><strong>Information you provide</strong> — for example, your name and email address when you contact us or submit feedback.</li>
+  <li><strong>Usage information</strong> — pages visited, browser type, device, and referring pages, collected through analytics and hosting logs. This is aggregate data used to understand how readers use the Site.</li>
+  <li><strong>Cookies and similar technologies</strong> — small files stored on your device to improve your experience and support advertising (see below).</li>
 </ul>
 
 <h2>How We Use Your Information</h2>

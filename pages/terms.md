@@ -1,9 +1,9 @@
-﻿---
+---
 layout: default
 title: "Terms of Service & Affiliate Disclosure for Earning24x7"
 description: "Read the Earning24x7 by TTEarnCrypto terms of service and affiliate disclosure covering accepted use, accuracy, earnings claims, and liability."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
+image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>Terms of Service &amp; Affiliate Disclosure</h1>
 

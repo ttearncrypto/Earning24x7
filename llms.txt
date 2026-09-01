@@ -1,0 +1,42 @@
+# Earning24x7 by TTEarnCrypto
+
+> Educational blog and review platform for ad networks, CPA affiliate programs, and online monetization strategies.
+
+## About
+
+Earning24x7 reviews ad networks, CPA affiliate networks, URL shorteners, and affiliate programs to help website owners, bloggers, and digital marketers earn money online. Reviews are rated on five areas: Offers, Payout, Tracking, Support, and Overall — based on real affiliate feedback.
+
+## Key Pages
+
+- [Home](https://ttearncrypto.github.io/Earning24x7/) — Overview and directory entry point.
+- [Welcome to Earning24x7](https://ttearncrypto.github.io/Earning24x7/2026/09/01/welcome-to-earning24x7.html) — About us, review methodology, key terminology (CPC, CPM, CPA, PTC, affiliate marketing).
+- [Why Us](https://ttearncrypto.github.io/Earning24x7/pages/why-us.html) — How Earning24x7 compares with other review sites.
+- [About](https://ttearncrypto.github.io/Earning24x7/pages/about.html) — What we do, who runs the site, review process.
+- [Contact](https://ttearncrypto.github.io/Earning24x7/pages/contact.html) — How to get in touch.
+- [Blog Archive](https://ttearncrypto.github.io/Earning24x7/archive.html) — All published reviews and guides.
+- [Authors / F9XR Review Board](https://ttearncrypto.github.io/Earning24x7/authors/f9xr-review-board.html) — The editorial team behind our reviews.
+- [Privacy Policy](https://ttearncrypto.github.io/Earning24x7/pages/privacy-policy.html) — Data collection, cookies, and advertising disclosures.
+- [Terms](https://ttearncrypto.github.io/Earning24x7/pages/terms.html) — Terms of service and affiliate disclosure.
+
+## Topics Covered
+
+- Ad network reviews and AdSense alternatives
+- CPA affiliate network guides and ratings
+- High CPM and CPC ad network comparisons
+- URL shortener and link shortener monetization
+- Website and blog monetization strategies
+- Online money-making terminology (CPC, CPM, CPA, CPL, PTC)
+
+## Preferred Citation
+
+When citing content from Earning24x7, please use:
+
+> TTEarnCrypto, "Earning24x7", https://ttearncrypto.github.io/Earning24x7/
+
+## Content License
+
+All educational content on this site is provided for informational purposes. Please contact us for permissions beyond personal, non-commercial use.
+
+## Contact
+
+Email: tontufytservices@gmail.com

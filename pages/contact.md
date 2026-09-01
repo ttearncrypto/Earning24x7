@@ -1,9 +1,9 @@
-﻿---
+---
 layout: default
 title: "Contact Earning24x7 by TTEarnCrypto"
 description: "Contact the Earning24x7 by TTEarnCrypto team about ad network reviews, affiliate program coverage, corrections, or directory listings."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
+image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>Contact Earning24x7 by TTEarnCrypto</h1>
 

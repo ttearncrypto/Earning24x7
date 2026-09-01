@@ -1,9 +1,9 @@
-﻿---
+---
 layout: default
 title: "About Earning24x7 by TTEarnCrypto"
 description: "Learn what Earning24x7 by TTEarnCrypto is, who runs it, how we review ad networks and affiliate programs, and how we keep our guides honest."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
+image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>About Earning24x7 by TTEarnCrypto</h1>
 
@@ -12,11 +12,11 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
 <h2>What We Do</h2>
 <p>We publish educational guides and honest reviews across the full money-making map:</p>
 <ul>
-  <li><strong>Ad network reviews</strong> â€” covering AdSense alternatives, high CPM ad networks, and the best ad networks for bloggers.</li>
-  <li><strong>CPA &amp; affiliate marketing</strong> â€” reviews of CPA affiliate networks plus step-by-step guides for beginners.</li>
-  <li><strong>Monetization models</strong> â€” clear explanations of CPC, CPM, CPA, CPL, PTC, and URL shortening.</li>
-  <li><strong>Blogging &amp; website monetization</strong> â€” how to drive traffic and turn it into income.</li>
-  <li><strong>Scam safety &amp; compliance</strong> â€” how to spot untrustworthy networks and stay compliant.</li>
+  <li><strong>Ad network reviews</strong> — covering AdSense alternatives, high CPM ad networks, and the best ad networks for bloggers.</li>
+  <li><strong>CPA &amp; affiliate marketing</strong> — reviews of CPA affiliate networks plus step-by-step guides for beginners.</li>
+  <li><strong>Monetization models</strong> — clear explanations of CPC, CPM, CPA, CPL, PTC, and URL shortening.</li>
+  <li><strong>Blogging &amp; website monetization</strong> — how to drive traffic and turn it into income.</li>
+  <li><strong>Scam safety &amp; compliance</strong> — how to spot untrustworthy networks and stay compliant.</li>
 </ul>
 
 <h2>Who Runs Earning24x7</h2>

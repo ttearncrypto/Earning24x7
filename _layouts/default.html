@@ -4,29 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <meta name="keywords" content="AdSense alternatives, CPA affiliate networks, ad network reviews, high CPM ad networks, earn money online, best ad networks, ad networks for affiliates">
 
-  <!-- Begin SEO -->
+  <!-- Begin SEO (emits title, meta description, canonical, Open Graph, Twitter, feed links) -->
   {% seo %}
   <!-- End SEO -->
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ page.image | default: '/assets/authors/f9xr.webp' | absolute_url }}">
-  <meta property="og:site_name" content="{{ site.title }}">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-  <meta name="twitter:image" content="{{ page.image | default: '/assets/authors/f9xr.webp' | absolute_url }}">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,33 +44,28 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}{{ site.baseurl }}/",
-    "description": "{{ site.description }}",
-    "author": {
+    "name": {{ site.title | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: "/" | jsonify }},
+    "description": {{ site.description | jsonify }},
+    "publisher": {
       "@type": "Organization",
-      "name": "TTEarnCrypto",
-      "url": "{{ site.url }}{{ site.baseurl }}/",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | append: site.baseurl | append: "/" | jsonify }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ '/assets/authors/og-brand.webp' | absolute_url | jsonify }},
+        "width": 1200,
+        "height": 630
+      },
       "sameAs": [
         "https://github.com/ttearncrypto",
         "https://twitter.com/ttearncrypto",
         "https://www.linkedin.com/in/inakmm"
       ]
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "TTEarnCrypto",
-      "url": "{{ site.url }}{{ site.baseurl }}/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ '/assets/authors/f9xr.webp' | absolute_url }}",
-        "width": 1200,
-        "height": 630
-      }
-    },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "{{ site.url }}{{ site.baseurl }}/?q={search_term_string}",
+      "target": { "@type": "EntryPoint", "urlTemplate": {{ site.url | append: site.baseurl | append: "/?q={search_term_string}" | jsonify }} },
       "query-input": "required name=search_term_string"
     }
   }
@@ -116,24 +92,49 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "{{ page.title | escape }}",
-    "image": "{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/authors/f9xr.webp' | absolute_url }}{% endif %}",
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    {%- if page.dateModified %}"dateModified": "{{ page.dateModified | date_to_xmlschema }}",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | default: site.description | jsonify }},
+    "image": {{ page.image | default: '/assets/authors/og-brand.webp' | absolute_url | jsonify }},
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    {%- if page.dateModified %}"dateModified": {{ page.dateModified | date_to_xmlschema | jsonify }},
     {%- endif %}
     "author": {
       "@type": "Person",
-      "name": "{{ page.author | default: site.author }}"
+      "name": {{ page.author | default: site.author | jsonify }},
+      "url": {{ '/authors/f9xr-review-board.html' | absolute_url | jsonify }},
+      "jobTitle": "Editorial Review Board Member",
+      "knowsAbout": ["Ad network reviews", "CPA affiliate networks", "Affiliate marketing", "Website monetization"]
     },
     "publisher": {
       "@type": "Organization",
-      "name": "TTEarnCrypto",
+      "name": {{ site.title | jsonify }},
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ '/assets/authors/f9xr.webp' | absolute_url }}"
+        "url": {{ '/assets/authors/og-brand.webp' | absolute_url | jsonify }},
+        "width": 1200,
+        "height": 630
       }
     },
-    "mainEntityOfPage": "{{ page.url | absolute_url }}"
+    "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2"]
+    }
+  }
+  </script>
+  {% elsif page.collection == 'authors' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "author": {
+      "@type": "Person",
+      "name": {{ page.title | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "jobTitle": "Editorial Review Board",
+      "knowsAbout": ["Ad network reviews", "CPA affiliate networks", "Affiliate marketing", "Website monetization", "CPC", "CPM", "PTC"]
+    }
   }
   </script>
   {% endif %}

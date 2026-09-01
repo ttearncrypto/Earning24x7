@@ -3,7 +3,7 @@ layout: default
 title: "Earning24x7 by TTEarnCrypto | Ad Network & Affiliate Program Reviews"
 description: "Make money online: monetize your blog, website, or app. Compare the best advertising networks, discover high-paying affiliate programs, and implement proven strategies to maximize your earnings."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
+image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <section class="hero">
   <h1>Make Money Online: Monetize Your Blog, Website, or App</h1>

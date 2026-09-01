@@ -5,9 +5,20 @@ email: "tontufytservices@gmail.com"
 twitter_username: "ttearncrypto"
 github_username: "ttearncrypto"
 linkedin_username: "inakmm"
+lang: "en"
 
 url: "https://ttearncrypto.github.io"
 baseurl: "/Earning24x7"
+
+# Social / SEO (consumed by jekyll-seo-tag)
+logo: "/assets/authors/og-brand.webp"
+image: "/assets/authors/og-brand.webp"
+social:
+  name: "Earning24x7 by TTEarnCrypto"
+  links:
+    - "https://github.com/ttearncrypto"
+    - "https://twitter.com/ttearncrypto"
+    - "https://www.linkedin.com/in/inakmm"
 
 kramdown:
   syntax_highlighter_opts:
@@ -23,10 +34,6 @@ collections:
     output: true
     permalink: /:collection/:name.html
 
-titles_from_headings:
-  strip_title: true
-  collections: true
-
 defaults:
   - scope:
       path: ""
@@ -38,6 +45,5 @@ defaults:
       type: page
     values:
       layout: default
-      theme: minima
       author: "TTEarnCrypto"
-      image: /assets/authors/f9xr.webp
+      image: /assets/authors/og-brand.webp

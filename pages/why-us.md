@@ -3,7 +3,7 @@ layout: default
 title: "Why Us: Earning24x7 by TTEarnCrypto vs Other Review Sites"
 description: "See why Earning24x7 by TTEarnCrypto stands out among ad network and affiliate program review platforms. Honest ratings, real affiliate feedback, and fresh guides."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/f9xr.webp"
+image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>Why Us: Earning24x7 vs Other Review Sites</h1>
 

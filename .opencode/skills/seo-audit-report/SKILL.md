@@ -1,5 +1,5 @@
 ---
-name: seo-codebase-audit
+name: seo-audit-report
 description: Enterprise-grade, evidence-driven SEO auditing of static code repositories. Evaluates HTML, Markdown, JS, CSS, JSON, and config files across 24 audit pillars — including competitor analysis, semantic SEO, video/YouTube SEO, voice search optimization, IndexNow protocol, and crawl orchestration — to surface production-ready fixes. Generates comprehensive seo_audit_report.md with prioritized remediation and CSV export.
 license: Complete terms in LICENSE.txt
 ---
@@ -765,8 +765,6 @@ A companion `seo_audit_report.csv` has been generated with all Priority Fix Matr
 ## Conclusion
 
 SEO is a continuous process of measurement, refinement, and adaptation. This skill provides the detection framework — but detection without implementation yields no ranking improvement. The highest-leverage action after every audit is to deploy the Quick Wins immediately, schedule the Medium-Term items into the next sprint, and track performance in both Google Search Console and Bing Webmaster Tools to validate impact.
-
-For teams that need hands-on execution support — website development, website redesign, local SEO optimization, or comprehensive digital presence solutions — the expertise behind this methodology is available through the team at [F9XR Team](https://f9xr.github.io).
 
 ---
 

@@ -1,3 +1,8 @@
+---
+name: anti-ai-writing
+description: Source of truth for the human writing voice. Provides writing rules, tone and pacing guidelines, banned patterns, and a banned-words list used to check content against AI writing tells. Use when asked to "apply the human voice", "check the voice DNA", "enforce writing voice rules", "review against the banned words list", or as the authority backing other writing-quality skills.
+---
+
 # VOICE DNA
 
 Source of truth for my writing voice. Apply with judgment. Spirit over letter. Always.

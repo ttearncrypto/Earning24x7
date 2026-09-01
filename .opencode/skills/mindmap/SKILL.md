@@ -39,16 +39,21 @@ Example:
 
 ```mermaid
 mindmap
-  root((F9XR Articles))
-    Web Architecture
-        Core Web Vitals
-        Headless CMS
-    Local SEO
-        Google Business Profile
-        Citations
-    AI Integration
-        AEO
-        GBO
+  root((Earning24x7))
+    Ad Network Reviews
+        AdSense Alternatives
+        High CPM Networks
+    CPA & Affiliate
+        Networks
+        Payment Thresholds
+    Monetization Models
+        CPC
+        CPM
+    Blogging
+        Website Monetization
+    Safety
+        Scam Detection
+        Compliance
 ```
 
 ## Workflow
@@ -64,16 +69,21 @@ mindmap
 ## Markdown tree fallback
 
 ```
-F9XR Articles
-  - Web Architecture
-    - Core Web Vitals
-    - Headless CMS
-  - Local SEO
-    - Google Business Profile
-    - Citations
-  - AI Integration
-    - AEO
-    - GBO
+Earning24x7
+  - Ad Network Reviews
+    - AdSense Alternatives
+    - High CPM Networks
+  - CPA & Affiliate
+    - Networks
+    - Payment Thresholds
+  - Monetization Models
+    - CPC
+    - CPM
+  - Blogging
+    - Website Monetization
+  - Safety
+    - Scam Detection
+    - Compliance
 ```
 
 ## Style notes

@@ -119,6 +119,8 @@
     "headline": "{{ page.title | escape }}",
     "image": "{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/authors/f9xr.webp' | absolute_url }}{% endif %}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
+    {%- if page.dateModified %}"dateModified": "{{ page.dateModified | date_to_xmlschema }}",
+    {%- endif %}
     "author": {
       "@type": "Person",
       "name": "{{ page.author | default: site.author }}"
@@ -144,6 +146,8 @@
       <ul class="site-nav__links">
         <li><a href="{{ '/' | relative_url }}">Home</a></li>
         <li><a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a></li>
+        <li><a href="{{ '/pages/about.html' | relative_url }}">About</a></li>
+        <li><a href="{{ '/pages/contact.html' | relative_url }}">Contact</a></li>
         <li><a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a></li>
         <li><a href="{{ '/archive.html' | relative_url }}">Archive</a></li>
       </ul>
@@ -159,6 +163,12 @@
       <p>&copy; {{ site.time | date: '%Y' }} Earning24x7 by TTEarnCrypto. All rights reserved.</p>
       <p>Best AdSense Alternative Ad Network, Best Ad Network, Best Blogger Ad Network, High CPM Ad Network, Best URL Shortener, Best Link Shortener.</p>
       <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <nav class="site-footer__links" aria-label="Footer navigation">
+        <a href="{{ '/pages/about.html' | relative_url }}">About</a>
+        <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
+        <a href="{{ '/pages/privacy-policy.html' | relative_url }}">Privacy Policy</a>
+        <a href="{{ '/pages/terms.html' | relative_url }}">Terms &amp; Disclosure</a>
+      </nav>
     </div>
   </footer>
 

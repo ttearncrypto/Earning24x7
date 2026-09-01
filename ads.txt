@@ -1,0 +1,3 @@
+# Ads.txt for ttearncrypto.github.io
+# When Google AdSense approval lands, add the official line here:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

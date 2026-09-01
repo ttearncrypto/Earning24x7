@@ -1,30 +1,146 @@
 ---
 layout: default
 ---
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 <link href="/css/override.css" rel="stylesheet" type="text/css">
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}{{ site.baseurl }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{ site.url }}{{ site.baseurl }}/archive.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ page.title | jsonify }},
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  }
+  </script>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item"><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li class="breadcrumbs__item"><a href="{{ '/archive.html' | relative_url }}">Blog</a></li>
+      <li class="breadcrumbs__item" aria-current="page">{{ page.title | escape }}</li>
+    </ol>
+  </nav>
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {% assign author = page.author | default: site.author %}
-      {%- if author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: date_format }}</time>
+      {%- if page.dateModified -%}
+        • <span class="post-updated">Updated <time class="dt-updated" datetime="{{ page.dateModified | date_to_xmlschema }}" itemprop="dateModified">{{ page.dateModified | date: date_format }}</time></span>
+      {%- endif -%}
+      • <span class="post-reading-time">{% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{% if minutes < 1 %}1 min read{% else %}{{ minutes }} min read{% endif %}</span>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}</p>
   </header>
+
+  {%- if page.image -%}
+  <figure class="post-hero">
+    <img src="{{ page.image | absolute_url }}" alt="{{ page.title | escape }}{% if page.image_caption %}: {{ page.image_caption | escape }}{% endif %}" width="{{ page.image_width | default: 1200 }}" height="{{ page.image_height | default: 630 }}" loading="eager">
+    {%- if page.image_caption -%}
+    <figcaption class="post-hero__caption">{{ page.image_caption }}</figcaption>
+    {%- endif -%}
+  </figure>
+  {%- endif -%}
 
   <div class="share-links">
     {% include sharelinks.html %}
   </div>
+
+  <nav id="toc" class="post-toc" aria-label="Table of contents" hidden>
+    <h2 class="post-toc__title">In this article</h2>
+  </nav>
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
     {% include navlinks.html %}
   </div>
 
+  {%- if page.faq -%}
+  <section class="post-faq" id="faq" aria-label="Frequently asked questions">
+    <h2 class="post-faq__title">Frequently Asked Questions</h2>
+    <div class="post-faq__items">
+      {%- for item in page.faq -%}
+      <details class="post-faq__item">
+        <summary class="post-faq__q">{{ item.q | escape }}</summary>
+        <p class="post-faq__a">{{ item.a | escape }}</p>
+      </details>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for item in page.faq -%}
+      {
+        "@type": "Question",
+        "name": {{ item.q | jsonify }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ item.a | jsonify }}
+        }
+      }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+  {%- endif -%}
+
+  <aside class="author-box">
+    <a class="author-box__link" href="{{ '/authors/f9xr-review-board.html' | relative_url }}">
+      <img class="author-box__avatar" src="{{ '/assets/authors/f9xr.webp' | relative_url }}" alt="{{ page.author | default: 'F9XR Review Board' }}" width="64" height="64" loading="lazy">
+      <div class="author-box__meta">
+        <span class="author-box__label">Written by</span>
+        <span class="author-box__name">{{ page.author | default: "F9XR Review Board" }}</span>
+        <span class="author-box__role">Earning24x7 Editorial Review Board</span>
+      </div>
+    </a>
+  </aside>
+
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<script>
+(function () {
+  var content = document.querySelector('.post-content');
+  if (!content) return;
+  var headings = content.querySelectorAll('h2');
+  if (headings.length < 2) return;
+  var toc = document.getElementById('toc');
+  var list = document.createElement('ul');
+  list.className = 'post-toc__list';
+  headings.forEach(function (h, i) {
+    if (!h.id) h.id = 'section-' + i;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+  toc.appendChild(list);
+  toc.removeAttribute('hidden');
+})();
+</script>

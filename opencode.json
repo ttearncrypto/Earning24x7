@@ -1,0 +1,9 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "command": {
+    "publish": {
+      "template": "Publish a new blog post using the blog-publisher skill. Topic or focus: $ARGUMENTS",
+      "description": "Publish a blog post to Earning24x7 via the blog-publisher skill"
+    }
+  }
+}

@@ -43,3 +43,122 @@ hr {
   font-size: 2.5em;
   opacity: 0.3;
 }
+
+/* Footer reveal effect: footer stays fixed behind main content */
+html {
+  background: #1f2328;
+}
+
+body {
+  background: transparent;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  min-height: 140px;
+  background: #1f2328;
+  color: #e6edf3;
+  padding: 2em 1em 1em;
+  box-sizing: border-box;
+}
+
+.site-footer a {
+  color: #58a6ff;
+}
+
+.site-footer__content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.12);
+  margin-bottom: 140px;
+}
+
+/* Keep page backgrounds readable where main is transparent */
+.page-content {
+  background: #ffffff;
+}
+
+/* Hero section on homepage */
+.hero {
+  padding: 2.5em 1.5em;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 2em;
+}
+
+.hero h1 {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.hero-sub {
+  font-size: 1.1em;
+  color: #22d3ee;
+}
+
+.hero a {
+  color: #7dd3fc;
+}
+
+/* Video section */
+#videos .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.video-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1em;
+  background: #f8fafc;
+}
+
+.video-thumbnail {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2e8f0;
+  color: #64748b;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+.video-card h3 {
+  margin: 0.8em 0 0.3em;
+  font-size: 1.05em;
+}
+
+/* Author profile page */
+.author-profile {
+  text-align: center;
+  padding: 1.5em;
+}
+
+.author-avatar {
+  border-radius: 50%;
+  margin-bottom: 0.5em;
+}
+
+.author-role {
+  color: #475569;
+  font-style: italic;
+  margin-top: 0;
+}

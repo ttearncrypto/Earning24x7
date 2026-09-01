@@ -64,12 +64,12 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
+    "url": "{{ site.url }}{{ site.baseurl }}/",
     "description": "{{ site.description }}",
     "author": {
       "@type": "Organization",
       "name": "TTEarnCrypto",
-      "url": "{{ site.url }}",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
       "sameAs": [
         "https://github.com/ttearncrypto",
         "https://twitter.com/ttearncrypto",
@@ -79,7 +79,7 @@
     "publisher": {
       "@type": "Organization",
       "name": "TTEarnCrypto",
-      "url": "{{ site.url }}",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
       "logo": {
         "@type": "ImageObject",
         "url": "{{ '/assets/authors/f9xr.webp' | absolute_url }}",
@@ -89,12 +89,12 @@
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "{{ site.url }}/?q={search_term_string}",
+      "target": "{{ site.url }}{{ site.baseurl }}/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
   </script>
-  {% elsif page.url == '/why-us.html' %}
+  {% elsif page.url == '/pages/why-us.html' %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -111,6 +111,29 @@
     ]
   }
   </script>
+  {% elsif page.collection == 'posts' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | escape }}",
+    "image": "{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/authors/f9xr.webp' | absolute_url }}{% endif %}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.author | default: site.author }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TTEarnCrypto",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ '/assets/authors/f9xr.webp' | absolute_url }}"
+      }
+    },
+    "mainEntityOfPage": "{{ page.url | absolute_url }}"
+  }
+  </script>
   {% endif %}
 </head>
 <body>
@@ -121,6 +144,7 @@
       <ul class="site-nav__links">
         <li><a href="{{ '/' | relative_url }}">Home</a></li>
         <li><a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a></li>
+        <li><a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a></li>
         <li><a href="{{ '/archive.html' | relative_url }}">Archive</a></li>
       </ul>
     </nav>

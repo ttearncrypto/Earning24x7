@@ -6,8 +6,8 @@ twitter_username: "ttearncrypto"
 github_username: "ttearncrypto"
 linkedin_username: "inakmm"
 
-url: "https://ttearncrypto.github.io/Earning24x7"
-baseurl: ""
+url: "https://ttearncrypto.github.io"
+baseurl: "/Earning24x7"
 
 kramdown:
   syntax_highlighter_opts:
@@ -17,6 +17,11 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
+collections:
+  authors:
+    output: true
+    permalink: /:collection/:name.html
 
 titles_from_headings:
   strip_title: true

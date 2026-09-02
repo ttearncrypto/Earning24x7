@@ -7,6 +7,9 @@ github_username: "ttearncrypto"
 linkedin_username: "inakmm"
 lang: "en"
 
+# Replace with your GA4 measurement ID (e.g. G-XXXXXXXXXX) to enable analytics
+# google_analytics: "G-XXXXXXXXXX"
+
 url: "https://ttearncrypto.github.io"
 baseurl: "/Earning24x7"
 
@@ -37,12 +40,12 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: post
+      type: posts
     values:
       tags: Other
   - scope:
       path: ""
-      type: page
+      type: pages
     values:
       layout: default
       author: "TTEarnCrypto"

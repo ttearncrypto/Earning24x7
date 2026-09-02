@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Avoid wasting crawl budget on non-content resources
+Disallow: /assets/audio/
+Disallow: /assets/js/
+
 Sitemap: https://ttearncrypto.github.io/Earning24x7/sitemap.xml

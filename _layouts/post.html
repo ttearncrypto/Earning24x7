@@ -2,7 +2,6 @@
 layout: default
 ---
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-<link href="/css/override.css" rel="stylesheet" type="text/css">
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <script type="application/ld+json">
@@ -45,16 +44,17 @@ layout: default
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: date_format }}</time>
       {%- if page.dateModified -%}
-        • <span class="post-updated">Updated <time class="dt-updated" datetime="{{ page.dateModified | date_to_xmlschema }}" itemprop="dateModified">{{ page.dateModified | date: date_format }}</time></span>
+        <span class="post-updated">Updated <time class="dt-updated" datetime="{{ page.dateModified | date_to_xmlschema }}" itemprop="dateModified">{{ page.dateModified | date: date_format }}</time></span>
       {%- endif -%}
-      • <span class="post-reading-time">{% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{% if minutes < 1 %}1 min read{% else %}{{ minutes }} min read{% endif %}</span>
+      <span class="post-reading-time">{% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{{ minutes | plus: 1 }} min read</span>
       {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="p-author h-card" href="{{ '/authors/f9xr-review-board.html' | relative_url }}" itemprop="name">{{ page.author }}</a></span>
+      {%- endif -%}
+    </p>
   </header>
 
   {%- if page.image -%}
-  <figure class="post-hero">
+  <figure class="post-hero reveal visible">
     <img src="{{ page.image | absolute_url }}" alt="{{ page.title | escape }}{% if page.image_caption %}: {{ page.image_caption | escape }}{% endif %}" width="{{ page.image_width | default: 1200 }}" height="{{ page.image_height | default: 630 }}" loading="eager">
     {%- if page.image_caption -%}
     <figcaption class="post-hero__caption">{{ page.image_caption }}</figcaption>
@@ -62,7 +62,7 @@ layout: default
   </figure>
   {%- endif -%}
 
-  <div class="share-links">
+  <div class="share-links reveal visible">
     {% include sharelinks.html %}
   </div>
 
@@ -80,7 +80,7 @@ layout: default
     <h2 class="post-faq__title">Frequently Asked Questions</h2>
     <div class="post-faq__items">
       {%- for item in page.faq -%}
-      <details class="post-faq__item">
+      <details class="post-faq__item" {% if forloop.first %}open{% endif %}>
         <summary class="post-faq__q">{{ item.q | escape }}</summary>
         <p class="post-faq__a">{{ item.a | escape }}</p>
       </details>

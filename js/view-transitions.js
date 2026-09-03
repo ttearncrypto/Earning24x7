@@ -1,78 +1,20 @@
-// Earning24x7 by TTEarnCrypto — front-end enhancements
-// View Transitions, theme toggle, search, back-to-top, mobile nav, reveal-on-scroll
+// Earning24x7 by TTEarnCrypto — Glassmorphism UI enhancements
+// View Transitions, reveal-on-scroll, search, back-to-top, mobile nav, filters
 
 (function () {
   "use strict";
 
   /* ============================================================
-     Theme toggle (dark / light) with View Transition where supported
+     Lucide icon initialization
      ============================================================ */
 
-  var THEME_KEY = "earning24x7-theme";
-
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem(THEME_KEY);
-    } catch (e) { return null; }
-  }
-
-  function getSystemTheme() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
-
-  function determineTheme() {
-    return getStoredTheme() || getSystemTheme();
-  }
-
-  function applyTheme(theme, animate) {
-    var root = document.documentElement;
-    var hasTransition = animate && document.startViewTransition && root.classList.contains("theme-transition");
-
-    function setTheme() {
-      if (theme === "dark") {
-        root.setAttribute("data-theme", "dark");
-      } else {
-        root.removeAttribute("data-theme");
-      }
-      var icon = document.getElementById("theme-icon-sun");
-      var moon = document.getElementById("theme-icon-moon");
-      if (icon) icon.style.display = theme === "dark" ? "none" : "";
-      if (moon) moon.style.display = theme === "dark" ? "" : "none";
-      // Update any pre-color-scheme meta to prevent flash
-      var meta = document.querySelector('meta[name="color-scheme"]');
+  function initIcons() {
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
     }
-
-    if (hasTransition) {
-      var transition = document.startViewTransition(function () {
-        setTheme();
-      });
-      if (transition && transition.finished) {
-        transition.finished.catch(function () { setTheme(); });
-      }
-    } else {
-      setTheme();
-    }
-
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch (e) {}
   }
-
-  var themeBtn = document.getElementById("theme-toggle");
-  if (themeBtn) {
-    applyTheme(determineTheme(), false);
-    themeBtn.addEventListener("click", function () {
-      var current = document.documentElement.getAttribute("data-theme") ? "dark" : "light";
-      applyTheme(current === "dark" ? "light" : "dark", true);
-    });
-  }
-
-  // Listen for system theme changes if user hasn't overridden
-  if (window.matchMedia) {
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-      if (!getStoredTheme()) applyTheme(e.matches ? "dark" : "light", false);
-    });
-  }
+  initIcons();
+  document.addEventListener("DOMContentLoaded", initIcons);
 
   /* ============================================================
      View Transitions API — animated navigation between pages
@@ -96,7 +38,7 @@
     if (link.target && link.target !== "_self") return;
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     if (link.getAttribute("rel") === "nofollow") return;
-    if (href.startsWith("#")) return; // in-page anchors shouldn't transition
+    if (href.startsWith("#")) return;
 
     event.preventDefault();
 
@@ -124,9 +66,30 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
     revealEls.forEach(function (el) {
       observer.observe(el);
+    });
+  }
+
+  /* ============================================================
+     Staggered reveal for grid items
+     ============================================================ */
+
+  var staggerEls = document.querySelectorAll(".reveal-stagger");
+  if ("IntersectionObserver" in window && staggerEls.length > 0) {
+    var staggerObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, idx) {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = (entry.target.dataset.stagger || 0) * 80 + "ms";
+          entry.target.classList.add("visible");
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -20px 0px" });
+    staggerEls.forEach(function (el, i) {
+      el.dataset.stagger = i % 8;
+      staggerObserver.observe(el);
     });
   }
 
@@ -148,7 +111,6 @@
 
   var navToggle = document.getElementById("nav-toggle");
   var navDrawer = document.getElementById("nav-drawer");
-  var body = document.body;
 
   if (navToggle && navDrawer) {
     navToggle.addEventListener("click", function () {
@@ -170,7 +132,7 @@
     });
 
     navDrawer.addEventListener("click", function (event) {
-      if (event.target.tagName === "A") {
+      if (event.target.closest("a")) {
         navDrawer.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
       }
@@ -185,7 +147,7 @@
   }
 
   /* ============================================================
-     Reading progress bar (visible on posts)
+     Reading progress bar
      ============================================================ */
 
   var progressBar = document.getElementById("reading-progress");
@@ -284,7 +246,6 @@
   var searchResults = document.getElementById("search-results");
   var searchClose = document.getElementById("search-close");
 
-  // Build a search index from all posts/pages known to the Jekyll build
   var SEARCH_INDEX = null;
   var searchIndexScript = document.getElementById("search-index");
   if (searchIndexScript) {
@@ -309,17 +270,19 @@
     searchModal.classList.remove("open");
     document.body.style.overflow = "";
     if (searchInput) { searchInput.value = ""; }
-    renderResults([]);
+    renderResults([], true);
   }
 
   function normalize(s) {
     return String(s || "").toLowerCase().replace(/[^a-z0-9\s]/gi, "");
   }
 
-  function renderResults(results) {
+  function renderResults(results, emptyOnly) {
     if (!searchResults) return;
     if (!results.length) {
-      var empty = document.createElement("div");
+      var empty = searchResults.querySelector(".search-results__empty");
+      if (emptyOnly && empty) return;
+      empty = document.createElement("div");
       empty.className = "search-results__empty";
       empty.textContent = "No matching results.";
       searchResults.innerHTML = "";
@@ -331,7 +294,6 @@
       var a = document.createElement("a");
       a.className = "search-result";
       a.href = item.url;
-      a.innerHTML = "";
       var t = document.createElement("div");
       t.className = "search-result__title";
       t.textContent = item.title;
@@ -401,7 +363,88 @@
   }
 
   /* ============================================================
-     Highlight active nav link based on current path + drawer closing
+     Homepage: category filter pills
+     ============================================================ */
+
+  var filterPills = document.querySelectorAll(".filter-pill");
+  var articleBlocks = document.querySelectorAll(".article-block");
+
+  if (filterPills.length > 0) {
+    filterPills.forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        filterPills.forEach(function (p) { p.classList.remove("active"); });
+        pill.classList.add("active");
+        var cat = pill.dataset.filter;
+        articleBlocks.forEach(function (block) {
+          if (cat === "all" || block.dataset.category === cat) {
+            block.hidden = false;
+          } else {
+            block.hidden = true;
+          }
+        });
+        currentlyShown = LOAD_STEP;
+        applyVisibility();
+      });
+    });
+  }
+
+  /* ============================================================
+     Homepage: Load More
+     ============================================================ */
+
+  var loadMoreBtn = document.getElementById("load-more");
+  var LOAD_STEP = 6;
+  var currentlyShown = LOAD_STEP;
+
+  function visibleBlocks() {
+    var out = [];
+    articleBlocks.forEach(function (b) {
+      if (!b.hidden) out.push(b);
+    });
+    return out;
+  }
+
+  function applyVisibility() {
+    var visible = visibleBlocks();
+    visible.forEach(function (b, i) {
+      b.style.display = i < currentlyShown ? "" : "none";
+    });
+    if (loadMoreBtn) {
+      loadMoreBtn.hidden = visible.length <= currentlyShown;
+    }
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", function () {
+      currentlyShown += LOAD_STEP;
+      applyVisibility();
+    });
+    applyVisibility();
+  }
+
+  /* ============================================================
+     Homepage: inline search within article grid
+     ============================================================ */
+
+  var homeSearch = document.getElementById("home-search-input");
+  if (homeSearch) {
+    homeSearch.addEventListener("input", function () {
+      var q = normalize(homeSearch.value);
+      articleBlocks.forEach(function (block) {
+        var hay = normalize((block.dataset.title || "") + " " + (block.dataset.desc || ""));
+        if (!q || hay.indexOf(q) !== -1) {
+          block.hidden = false;
+        } else {
+          block.hidden = true;
+        }
+      });
+      currentlyShown = LOAD_STEP;
+      applyVisibility();
+    });
+  }
+
+  /* ============================================================
+     Highlight active nav link
      ============================================================ */
 
   function highlightNav() {

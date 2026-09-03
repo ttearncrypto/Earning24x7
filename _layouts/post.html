@@ -44,10 +44,12 @@ layout: default
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: date_format }}</time>
       {%- if page.dateModified -%}
+        <span class="meta-sep">•</span>
         <span class="post-updated">Updated <time class="dt-updated" datetime="{{ page.dateModified | date_to_xmlschema }}" itemprop="dateModified">{{ page.dateModified | date: date_format }}</time></span>
       {%- endif -%}
       <span class="post-reading-time">{% assign words = content | number_of_words %}{% assign minutes = words | divided_by: 200 %}{{ minutes | plus: 1 }} min read</span>
       {%- if page.author -%}
+        <span class="meta-sep">•</span>
         <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="p-author h-card" href="{{ '/authors/f9xr-review-board.html' | relative_url }}" itemprop="name">{{ page.author }}</a></span>
       {%- endif -%}
     </p>
@@ -62,17 +64,25 @@ layout: default
   </figure>
   {%- endif -%}
 
-  <div class="share-links reveal visible">
-    {% include sharelinks.html %}
-  </div>
+  <div class="post-layout">
 
-  <nav id="toc" class="post-toc" aria-label="Table of contents" hidden>
-    <h2 class="post-toc__title">In this article</h2>
-  </nav>
+    <div class="post-layout__main">
+      <div class="share-links reveal visible">
+        {% include sharelinks.html %}
+      </div>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-    {% include navlinks.html %}
+      <div class="post-content e-content" itemprop="articleBody">
+        {{ content }}
+        {% include navlinks.html %}
+      </div>
+    </div>
+
+    <div class="post-layout__sidebar">
+      <aside id="toc" class="post-toc" aria-label="Table of contents" hidden>
+        <h2 class="post-toc__title"><i data-lucide="list"></i> In this article</h2>
+      </aside>
+    </div>
+
   </div>
 
   {%- if page.faq -%}
@@ -124,7 +134,7 @@ layout: default
 
 <script>
 (function () {
-  var content = document.querySelector('.post-content');
+  var content = document.querySelector('.post-layout__main .post-content');
   if (!content) return;
   var headings = content.querySelectorAll('h2');
   if (headings.length < 2) return;
@@ -142,5 +152,30 @@ layout: default
   });
   toc.appendChild(list);
   toc.removeAttribute('hidden');
+
+  // Scrollspy — highlight current section in TOC
+  if ('IntersectionObserver' in window) {
+    var links = list.querySelectorAll('a');
+    var tocLinks = {};
+    headings.forEach(function (h) {
+      tocLinks[h.id] = h;
+    });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          links.forEach(function (lk) {
+            lk.style.color = '';
+            lk.style.fontWeight = '';
+          });
+          var active = list.querySelector('a[href="#' + entry.target.id + '"]');
+          if (active) {
+            active.style.color = 'var(--accent)';
+            active.style.fontWeight = '600';
+          }
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    headings.forEach(function (h) { spy.observe(h); });
+  }
 })();
 </script>

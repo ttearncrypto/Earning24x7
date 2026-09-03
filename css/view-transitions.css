@@ -1,12 +1,13 @@
 /* ============================================================
-   View Transitions API — cross-page animations + theme transition
+   Earning24x7 — Glassmorphism Animations
+   View Transitions, reveal, gradient shifts
    ============================================================ */
 
 @view-transition {
   navigation: auto;
 }
 
-/* Universal root slide — subtle directional movement */
+/* Universal root slide */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 480ms;
@@ -43,77 +44,26 @@
   }
 }
 
-/* Named transitions for enhanced feel */
-::view-transition-old(header) {
-  animation: shrink 0.35s ease forwards;
-}
-
-::view-transition-new(header) {
-  animation: grow 0.35s ease;
-}
-
-@keyframes shrink {
-  to {
-    height: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes grow {
-  from {
-    height: 0;
-    opacity: 0;
-  }
-}
-
-/* Theme-change smooth crossfade when toggling dark/light */
-::view-transition-old(theme),
-::view-transition-new(theme) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(theme) {
-  animation: vtp-fade-out 300ms ease;
-}
-
-::view-transition-new(theme) {
-  animation: vtp-fade-in 300ms ease;
-}
-
-@keyframes vtp-fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes vtp-fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-/* Page-load fade-in (JS adds .page-ready) */
+/* Page-load entrance — fade + scale */
 body.page-ready main.site-main {
-  animation: page-entrance 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: page-entrance 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes page-entrance {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px) scale(0.995);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* In-page element transitions (fade-up on reveal) */
-/* Only apply hidden state when JS is active — content stays visible without JS */
+/* Reveal-on-scroll — staggered by class */
 .js .reveal {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
@@ -123,19 +73,117 @@ body.page-ready main.site-main {
   transform: translateY(0);
 }
 
+/* Staggered reveals for grids */
+.js .reveal-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.js .reveal-stagger.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Decorative element drift animation */
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2%, 3%) scale(1.05);
+  }
+  100% {
+    transform: translate(-1%, 1%) scale(0.98);
+  }
+}
+
+.orb {
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+.orb--blue {
+  animation-delay: 0s;
+}
+
+.orb--cyan {
+  animation-delay: -4s;
+}
+
+.orb--purple {
+  animation-delay: -8s;
+}
+
+/* Gradient shimmer for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--glass-bg) 0%, var(--glass-bg-medium) 50%, var(--glass-bg) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease infinite;
+}
+
+/* Glass hover glow */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(56, 139, 253, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(56, 139, 253, 0.15);
+  }
+}
+
+/* Gradient border on hover */
+.border-glow {
+  position: relative;
+}
+
+.border-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(56, 139, 253, 0.6), rgba(34, 211, 238, 0.6), rgba(167, 139, 250, 0.6));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.border-glow:hover::before {
+  opacity: 1;
+}
+
 /* Reduced motion fallback */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
   ::view-transition-new(root),
-  ::view-transition-old(theme),
-  ::view-transition-new(theme),
   body.page-ready main.site-main {
     animation: none;
   }
 
-  .js .reveal {
+  .js .reveal,
+  .js .reveal-stagger {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .orb {
+    animation: none;
+  }
+
+  .shimmer {
+    animation: none;
   }
 }

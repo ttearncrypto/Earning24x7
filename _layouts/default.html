@@ -1,45 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d1117">
 
-  <!-- Apply theme before first paint to avoid flash -->
   <script>
     (function () {
       try {
-        var stored = localStorage.getItem("earning24x7-theme");
-        var dark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
         var root = document.documentElement;
         root.classList.add("theme-transition");
         root.classList.add("js");
-        if (dark) root.setAttribute("data-theme", "dark");
+        root.setAttribute("data-theme", "dark");
       } catch (e) {}
     })();
   </script>
 
-  <!-- Begin SEO (emits title, meta description, canonical, Open Graph, Twitter, feed links) -->
   {% seo %}
-  <!-- End SEO -->
 
-  <!-- Preconnect is not needed: we use self-hosted CSS/JS and system fonts -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" type="text/css" href="{{ '/css/override.css' | relative_url }}">
   <link rel="stylesheet" type="text/css" href="{{ '/css/view-transitions.css' | relative_url }}">
 
   {% feed_meta %}
 
   {% if jekyll.environment == 'production' and site.google_analytics -%}
-  <!-- Begin Google Analytics -->
   {% include google-analytics.html %}
-  <!-- End Google Analytics -->
   {%- endif %}
 
-  <!-- Begin highlight.js support -->
+  <!-- highlight.js -->
   <link rel="stylesheet" href="{{ '/js/highlightjs/styles/github.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/js/highlightjs/styles/ssms.css' | relative_url }}" />
 
@@ -47,9 +40,10 @@
   <script type="text/javascript" defer src="{{ '/js/highlightjs/languages/plaintext.min.js' | relative_url }}"></script>
   <script type="text/javascript" defer src="{{ '/js/highlightjs/languages/powershell.min.js' | relative_url }}"></script>
   <script type="text/javascript" defer src="{{ '/js/highlightjs/languages/tsql.min.js' | relative_url }}"></script>
-  <!-- end highlight.js support -->
 
-  <!-- Client-side search index -->
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
   {%- assign search_items = "" | split: "," -%}
   {%- for post in site.posts -%}
     {%- capture item_json -%}{"url":"{{ post.url | relative_url }}","title":{{ post.title | jsonify }},"description":{{ post.description | default: site.description | jsonify }}}{%- endcapture -%}
@@ -69,7 +63,6 @@
   ]
   </script>
 
-  <!-- Structured Data -->
   {% if page.url == '/' %}
   {% assign search_template = site.url | append: site.baseurl | append: "/?q=" | append: "{" | append: "search_term_string" | append: "}" %}
   <script type="application/ld+json">
@@ -178,7 +171,10 @@
   <!-- Header -->
   <header class="site-header" role="banner">
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
-      <a href="{{ '/' | relative_url }}" class="site-nav__brand"><span class="brand-emoji">💰</span>{{ site.title }}</a>
+      <a href="{{ '/' | relative_url }}" class="site-nav__brand">
+        <span class="brand-icon"><i data-lucide="zap"></i></span>
+        {{ site.title }}
+      </a>
 
       <div class="site-nav__desktop" id="site-nav-desktop">
         <a href="{{ '/' | relative_url }}">Home</a>
@@ -191,44 +187,22 @@
 
       <div class="nav-actions">
         <button class="icon-btn" id="search-toggle" aria-label="Search the site" type="button" title="Search (Ctrl+K)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" type="button" title="Toggle dark mode">
-          <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-          <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
+          <i data-lucide="search"></i>
         </button>
         <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+          <i data-lucide="menu"></i>
         </button>
       </div>
     </nav>
 
     <!-- Mobile drawer -->
     <div class="site-nav__drawer" id="nav-drawer" aria-label="Mobile navigation">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a>
-      <a href="{{ '/pages/about.html' | relative_url }}">About</a>
-      <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
-      <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
-      <a href="{{ '/archive.html' | relative_url }}">Archive</a>
+      <a href="{{ '/' | relative_url }}"><i data-lucide="home"></i> Home</a>
+      <a href="{{ '/pages/why-us.html' | relative_url }}"><i data-lucide="star"></i> Why Us</a>
+      <a href="{{ '/pages/about.html' | relative_url }}"><i data-lucide="info"></i> About</a>
+      <a href="{{ '/pages/contact.html' | relative_url }}"><i data-lucide="mail"></i> Contact</a>
+      <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}"><i data-lucide="users"></i> Authors</a>
+      <a href="{{ '/archive.html' | relative_url }}"><i data-lucide="archive"></i> Archive</a>
     </div>
   </header>
 
@@ -238,21 +212,48 @@
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="site-footer__content">
-      <p class="site-footer__brand">{{ site.title }}</p>
-      <p class="site-footer__tagline">Best AdSense Alternative Ad Network, Best Ad Network, Best Blogger Ad Network, High CPM Ad Network, Best URL Shortener, Best Link Shortener.</p>
-      <nav class="site-footer__links" aria-label="Footer navigation">
-        <a href="{{ '/pages/about.html' | relative_url }}">About</a>
-        <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
-        <a href="{{ '/pages/privacy-policy.html' | relative_url }}">Privacy Policy</a>
-        <a href="{{ '/pages/terms.html' | relative_url }}">Terms &amp; Disclosure</a>
-        <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
-      </nav>
+      <div class="site-footer__top">
+        <div class="site-footer__brand-col">
+          <p class="site-footer__brand">{{ site.title }}</p>
+          <p class="site-footer__tagline">Best AdSense Alternative Ad Network, Best Ad Network, Best Blogger Ad Network, High CPM Ad Network, Best URL Shortener, Best Link Shortener.</p>
+          <div class="site-footer__social">
+            <a href="https://github.com/ttearncrypto" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
+            <a href="https://twitter.com/ttearncrypto" target="_blank" rel="noopener" aria-label="X (Twitter)"><i data-lucide="twitter"></i></a>
+            <a href="https://www.linkedin.com/in/inakmm" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+            <a href="mailto:{{ site.email }}" aria-label="Email"><i data-lucide="mail"></i></a>
+          </div>
+        </div>
+
+        <nav class="site-footer__links" aria-label="Company links">
+          <span class="site-footer__links-title">Company</span>
+          <a href="{{ '/pages/about.html' | relative_url }}">About</a>
+          <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
+          <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
+        </nav>
+
+        <nav class="site-footer__links" aria-label="Legal links">
+          <span class="site-footer__links-title">Legal</span>
+          <a href="{{ '/pages/privacy-policy.html' | relative_url }}">Privacy Policy</a>
+          <a href="{{ '/pages/terms.html' | relative_url }}">Terms &amp; Disclosure</a>
+          <a href="{{ '/archive.html' | relative_url }}">Blog Archive</a>
+        </nav>
+
+        <nav class="site-footer__links" aria-label="Resources links">
+          <span class="site-footer__links-title">Resources</span>
+          <a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a>
+          <a href="{{ '/pages/contact.html' | relative_url }}">Submit a Network</a>
+          <a href="{{ '/archive.html' | relative_url }}">All Reviews</a>
+        </nav>
+      </div>
+
       <div class="site-footer__bottom">
         <span>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</span>
         <span class="site-footer__legal">
-          <a href="mailto:{{ site.email }}">Contact Us</a>
+          <a href="#">Privacy</a>
+          <a href="{{ '/pages/terms.html' | relative_url }}">Terms</a>
         </span>
       </div>
     </div>
@@ -262,14 +263,10 @@
   <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Site search">
     <div class="search-modal__panel">
       <div class="search-modal__input-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+        <i data-lucide="search"></i>
         <input type="text" class="search-modal__input" id="search-input" placeholder="Search reviews, guides, pages..." autocomplete="off">
         <button class="search-modal__close" id="search-close" aria-label="Close search" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+          <i data-lucide="x"></i>
         </button>
       </div>
       <div class="search-results" id="search-results"></div>
@@ -278,9 +275,7 @@
 
   <!-- Back to top -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top" type="button">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
+    <i data-lucide="arrow-up"></i>
   </button>
 
   <script src="{{ '/js/view-transitions.js' | relative_url }}"></script>

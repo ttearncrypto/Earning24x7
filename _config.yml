@@ -23,6 +23,13 @@ social:
     - "https://twitter.com/ttearncrypto"
     - "https://www.linkedin.com/in/inakmm"
 
+exclude:
+  - seo_audit_report.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - tools
+
 kramdown:
   syntax_highlighter_opts:
     disable: true

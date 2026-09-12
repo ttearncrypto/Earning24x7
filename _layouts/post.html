@@ -41,9 +41,14 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    {%- if page.description %}
+    <p class="post-dek">{{ page.description | escape }}</p>
+    {%- endif %}
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: date_format }}</time>
-      {%- if page.dateModified -%}
+      {%- assign page_date_only = page.date | date: "%Y-%m-%d" -%}
+{%- assign mod_date_only = page.dateModified | date: "%Y-%m-%d" -%}
+      {%- if page.dateModified and mod_date_only != page_date_only -%}
         <span class="meta-sep">•</span>
         <span class="post-updated">Updated <time class="dt-updated" datetime="{{ page.dateModified | date_to_xmlschema }}" itemprop="dateModified">{{ page.dateModified | date: date_format }}</time></span>
       {%- endif -%}
@@ -53,11 +58,19 @@ layout: default
         <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="p-author h-card" href="{{ '/authors/f9xr-review-board.html' | relative_url }}" itemprop="name">{{ page.author }}</a></span>
       {%- endif -%}
     </p>
+    {%- if page.tags %}
+    <p class="post-tags">
+      <span class="post-tags__label">Tags:</span>
+      {%- for tag in page.tags %}
+      <a class="post-tag" href="{{ '/archive.html' | relative_url }}" rel="tag">{{ tag }}</a>
+      {%- endfor %}
+    </p>
+    {%- endif %}
   </header>
 
   {%- if page.image -%}
   <figure class="post-hero reveal visible">
-    <img src="{{ page.image | absolute_url }}" alt="{{ page.title | escape }}{% if page.image_caption %}: {{ page.image_caption | escape }}{% endif %}" width="{{ page.image_width | default: 1200 }}" height="{{ page.image_height | default: 630 }}" loading="eager">
+    <img src="{{ page.image | absolute_url }}" alt="{{ page.title | escape }}{% if page.image_caption %}: {{ page.image_caption | escape }}{% endif %}" width="{{ page.image_width | default: 1200 }}" height="{{ page.image_height | default: 630 }}" loading="eager" fetchpriority="high" decoding="async">
     {%- if page.image_caption -%}
     <figcaption class="post-hero__caption">{{ page.image_caption }}</figcaption>
     {%- endif -%}
@@ -67,6 +80,8 @@ layout: default
   <div class="post-layout">
 
     <div class="post-layout__main">
+      {% include article-tools.html %}
+
       <div class="share-links reveal visible">
         {% include sharelinks.html %}
       </div>
@@ -78,16 +93,19 @@ layout: default
     </div>
 
     <div class="post-layout__sidebar">
-      <aside id="toc" class="post-toc" aria-label="Table of contents" hidden>
-        <h2 class="post-toc__title"><i data-lucide="list"></i> In this article</h2>
-      </aside>
+      <div class="post-sidebar-sticky">
+        <div class="gt-widget" id="google_translate_element" title="Translate this article"></div>
+        <aside id="toc" class="post-toc" aria-label="Table of contents" hidden>
+          <h2 class="post-toc__title"><i data-lucide="list"></i> In this article</h2>
+        </aside>
+      </div>
     </div>
 
   </div>
 
   {%- if page.faq -%}
   <section class="post-faq" id="faq" aria-label="Frequently asked questions">
-    <h2 class="post-faq__title">Frequently Asked Questions</h2>
+    <h2 class="post-faq__title">Related Questions</h2>
     <div class="post-faq__items">
       {%- for item in page.faq -%}
       <details class="post-faq__item" {% if forloop.first %}open{% endif %}>
@@ -119,18 +137,98 @@ layout: default
   {%- endif -%}
 
   <aside class="author-box">
-    <a class="author-box__link" href="{{ '/authors/f9xr-review-board.html' | relative_url }}">
-      <img class="author-box__avatar" src="{{ '/assets/authors/f9xr.webp' | relative_url }}" alt="{{ page.author | default: 'F9XR Review Board' }}" width="64" height="64" loading="lazy">
-      <div class="author-box__meta">
-        <span class="author-box__label">Written by</span>
-        <span class="author-box__name">{{ page.author | default: "F9XR Review Board" }}</span>
-        <span class="author-box__role">Earning24x7 Editorial Review Board</span>
-      </div>
-    </a>
+    <div class="author-box__top">
+      <a class="author-box__link" href="{{ '/authors/f9xr-review-board.html' | relative_url }}">
+        <img class="author-box__avatar" src="{{ '/assets/authors/f9xr.webp' | relative_url }}" alt="{{ page.author | default: 'F9XR Review Board' }}" width="64" height="64" loading="lazy" decoding="async">
+        <div class="author-box__meta">
+          <span class="author-box__label">Written by</span>
+          <span class="author-box__name">{{ page.author | default: "F9XR Review Board" }}</span>
+          <span class="author-box__role">Earning24x7 Editorial Review Board</span>
+        </div>
+      </a>
+    </div>
+    <p class="author-box__bio">The F9XR Review Board independently researches, tests, and rates every ad network and affiliate program we cover. Ratings draw on real affiliate feedback and first-hand testing across Offers, Payout, Tracking, and Support — no sponsored scores. Read our <a href="{{ '/pages/why-us.html' | relative_url }}">review method</a> and full <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">author credentials</a>.</p>
+    <div class="author-box__social">
+      {% include social-icons.html %}
+    </div>
   </aside>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<!-- Further reading -->
+{%- assign related = '' | split: ',' -%}
+{%- for post in site.posts -%}
+  {%- if post.url != page.url -%}
+    {%- assign related = related | push: post -%}
+    {%- if related.size >= 3 -%}{%- break -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if related.size > 0 -%}
+<section class="post-further" aria-label="Further reading">
+  <h2 class="post-further__title">Further Reading</h2>
+  <ul class="post-further__list">
+    {%- for post in related -%}
+    <li class="post-further__item">
+      <a href="{{ post.url | relative_url }}">
+        <span class="post-further__link-title">{{ post.title }}</span>
+        <time class="post-further__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>
+{%- endif -%}
+
+<!-- Share CTA -->
+<section class="post-share-cta" aria-label="Share this article">
+  <p class="post-share-cta__title"><strong>Enjoyed this article?</strong></p>
+  <p class="post-share-cta__text">Share it with your network — help someone else discover these insights.</p>
+  <div class="post-share-cta__row">
+    {% include sharelinks.html %}
+  </div>
+</section>
+
+<!-- Keywords -->
+{%- if page.tags -%}
+<section class="post-keywords" aria-label="Keywords">
+  <h2 class="post-keywords__title">Keywords</h2>
+  <div class="post-keywords__list">
+    {%- for tag in page.tags -%}
+    <a class="post-tag" href="{{ '/archive.html' | relative_url }}">{{ tag }}</a>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+<!-- License -->
+<section class="post-license" aria-label="Copyright and license">
+  <h2 class="post-license__title">Copyright</h2>
+  <p>&copy; 2026 F9XR Team. Licensed under the <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="license noopener">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>. You are free to share and adapt this work with attribution to the F9XR Team.</p>
+  <p class="post-license__links">
+    <a href="https://f9xr.github.io/" target="_blank" rel="noopener">https://f9xr.github.io/</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">https://creativecommons.org/licenses/by/4.0</a>
+  </p>
+</section>
+
+<!-- Disclaimer -->
+<section class="post-disclaimer" aria-label="Disclaimer">
+  <h2 class="post-disclaimer__title">Disclaimer</h2>
+  <p>This article reflects the experience and opinions of the F9XR Team and is provided for general informational purposes only. It is not professional legal, financial, or medical advice. Metrics and results mentioned are illustrative and not guaranteed.</p>
+</section>
+
+<!-- Comments -->
+<section class="post-comments" id="comments" aria-label="Comments">
+  <h2 class="post-comments__title">Comments</h2>
+  <script src="https://utteranc.es/client.js"
+          repo="ttearncrypto/Earning24x7"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
 
 <script>
 (function () {
@@ -179,3 +277,24 @@ layout: default
   }
 })();
 </script>
+
+<script>
+(function () {
+  try {
+    if (typeof window.googleTranslateElementInit === 'undefined') {
+      window.googleTranslateElementInit = function () {
+        if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,es,fr,de,ar,zh-CN,zh-TW,pt,ru,ja,ko,it,nl,tr,bn,ta,te',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      };
+    }
+  } catch (e) {}
+})();
+</script>
+<script defer src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script defer src="{{ '/js/article-tools.js' | relative_url }}"></script>

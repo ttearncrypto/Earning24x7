@@ -6,7 +6,7 @@ author: "F9XR Review Board"
 image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 ---
 <div class="author-profile">
-  <img src="{{ '/assets/authors/f9xr.webp' | absolute_url }}" alt="F9XR Review Board logo" width="128" height="128" loading="lazy" class="author-avatar">
+  <img src="{{ '/assets/authors/f9xr.webp' | absolute_url }}" alt="F9XR Review Board logo" width="128" height="128" loading="lazy" decoding="async" class="author-avatar">
   <h1>F9XR Review Board</h1>
   <p class="author-role">Independent Editorial Review Team at Earning24x7 by TTEarnCrypto</p>
   <p>The F9XR Review Board is the editorial team behind Earning24x7. We research, test, and score ad networks and affiliate programs so you can monetize your website with confidence.</p>

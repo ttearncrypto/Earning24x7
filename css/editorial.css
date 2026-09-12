@@ -1,161 +1,203 @@
-/* ============================================================
-   Earning24x7 by TTEarnCrypto — Editorial Print-Magazine Theme
-   Loads AFTER override.css. Global charcoal header/footer + homepage
-   components (masthead, featured hero, tracklist, spotlights,
-   newsletter, must-read grid, pills, grainy B/W imagery).
-   Palette: pure white #FFFFFF, charcoal #111111, salmon #F17A7A.
-   ============================================================ */
-
-/* ---------- Editorial headings (Archivo Black) ---------- */
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 400;
-}
-
 /* ---------- Header: deep charcoal editorial bar ---------- */
 
 .site-header {
+
   background: rgba(17, 17, 17, 0.97);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
 }
 
 .site-nav__brand {
+
   color: #fff;
+
 }
 
 .site-nav__brand:hover {
+
   color: var(--accent-bright);
+
 }
 
 .site-nav__desktop a {
+
   color: rgba(255, 255, 255, 0.75);
+
 }
 
 .site-nav__desktop a:hover {
+
   color: #fff;
   background: rgba(255, 255, 255, 0.08);
+
 }
 
 .site-nav__desktop a.active {
+
   color: var(--accent-bright);
-  background: rgba(241, 122, 122, 0.14);
+  background: rgba(249, 115, 22, 0.14);
+
 }
 
 .nav-toggle {
+
   color: rgba(255, 255, 255, 0.8);
+
 }
 
 .nav-toggle:hover {
+
   color: #fff;
   background: rgba(255, 255, 255, 0.08);
+
 }
 
 .icon-btn {
+
   color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.16);
+
 }
 
 .icon-btn:hover {
+
   color: var(--accent-bright);
-  border-color: rgba(241, 122, 122, 0.6);
-  background: rgba(241, 122, 122, 0.12);
+  border-color: rgba(249, 115, 22, 0.6);
+  background: rgba(249, 115, 22, 0.12);
+
 }
 
 .site-nav__drawer {
+
   background: rgba(17, 17, 17, 0.97);
+
 }
 
 .site-nav__drawer a {
+
   color: rgba(255, 255, 255, 0.8);
+
 }
 
 .site-nav__drawer a:hover,
 .site-nav__drawer a.active {
+
   color: var(--accent-bright);
   background: rgba(255, 255, 255, 0.08);
+
 }
 
 /* ---------- Footer: mirror of charcoal header ---------- */
 
 .site-footer {
+
   background: var(--bg-deep);
   color: rgba(255, 255, 255, 0.72);
+
 }
 
 .site-footer a {
+
   color: rgba(255, 255, 255, 0.72);
+
 }
 
 .site-footer a:hover {
+
   color: var(--accent-bright);
+
 }
 
 .site-footer__brand {
+
   color: #fff;
+
 }
 
 .site-footer__tagline {
+
   color: rgba(255, 255, 255, 0.62);
+
 }
 
 .site-footer__links-title {
+
   color: #fff;
+
 }
 
 .site-footer__bottom {
+
   color: rgba(255, 255, 255, 0.55);
+
 }
 
 .site-footer__legal a {
+
   color: rgba(255, 255, 255, 0.55);
+
 }
 
 .site-footer__social a {
+
   color: var(--accent-bright);
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.18);
+
 }
 
 .site-footer__social a:hover {
+
   color: #fff;
-  background: rgba(241, 122, 122, 0.25);
-  border-color: rgba(241, 122, 122, 0.6);
+  background: rgba(249, 115, 22, 0.25);
+  border-color: rgba(249, 115, 22, 0.6);
   transform: translateY(-2px);
+
 }
 
 /* ---------- Footer reveal effect ---------- */
 
 html {
+
   background: var(--bg-deep);
+
 }
 
 main.site-main {
+
   background: var(--bg);
+
 }
 
 .site-footer {
+
   position: sticky;
   bottom: 0;
   z-index: 0;
+
 }
 
 /* ---------- Shared editorial atoms ---------- */
 
 .ed-overline {
+
   margin: 0 0 1em;
   font-size: 0.72em;
   font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--text-subtle);
+
 }
 
 .ed-overline--accent {
+
   color: var(--accent-strong);
+
 }
 
 .ed-pill {
+
   display: inline-block;
   font-size: 0.66em;
   font-weight: 600;
@@ -166,15 +208,19 @@ main.site-main {
   border: 1px solid rgba(212, 87, 76, 0.25);
   border-radius: var(--radius-pill);
   padding: 0.35em 0.9em;
+
 }
 
 .ed-pill--dark {
+
   color: #fff;
   background: var(--bg-deep);
   border-color: var(--bg-deep);
+
 }
 
 .ed-btn {
+
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
@@ -186,27 +232,35 @@ main.site-main {
   border-radius: var(--radius-pill);
   border: none;
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(241, 122, 122, 0.35);
+  box-shadow: 0 4px 18px rgba(249, 115, 22, 0.35);
   transition: all var(--transition-base);
+
 }
 
 .ed-btn:hover {
+
   color: #fff;
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(241, 122, 122, 0.45);
+  box-shadow: 0 8px 26px rgba(249, 115, 22, 0.45);
+
 }
 
 .ed-btn svg {
+
   width: 16px;
   height: 16px;
+
 }
 
 .ed-btn--pill {
+
   border-radius: var(--radius-pill);
+
 }
 
 .ed-section-head {
+
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -214,23 +268,29 @@ main.site-main {
   margin-bottom: 2em;
   padding-bottom: 0.9em;
   border-bottom: 2px solid var(--text-display);
+
 }
 
 .ed-section-head__title {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(1.5em, 3vw, 2.1em);
   line-height: 1.05;
   margin: 0;
+
 }
 
 .ed-arrows {
+
   display: flex;
   gap: 0.5em;
   color: var(--text-subtle);
+
 }
 
 .ed-arrow {
+
   width: 40px;
   height: 40px;
   border: 1px solid var(--border-medium);
@@ -239,24 +299,32 @@ main.site-main {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
 }
 
 .ed-arrow svg {
+
   width: 18px;
   height: 18px;
+
 }
 
 /* Grainy B/W photographic treatment */
 .ed-grain {
+
   position: relative;
   overflow: hidden;
+
 }
 
 .ed-grain img {
+
   filter: grayscale(1) contrast(1.06);
+
 }
 
 .ed-grain::after {
+
   content: "";
   position: absolute;
   inset: 0;
@@ -264,33 +332,41 @@ main.site-main {
   opacity: 0.35;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+
 }
 
 /* ---------- Masthead: full-bleed charcoal banner ---------- */
 
 .ed-masthead {
+
   margin-top: -2.5em;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   background: var(--bg-deep);
   color: #fff;
   padding: 4.25em 1.25em 3.5em;
+
 }
 
 .ed-masthead__inner {
+
   max-width: var(--content-max);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.35fr 1fr;
   gap: 3em;
   align-items: end;
+
 }
 
 .ed-masthead .ed-overline {
+
   color: rgba(255, 255, 255, 0.6);
+
 }
 
 .ed-masthead__title {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(2.9em, 8.5vw, 5.6em);
@@ -299,38 +375,48 @@ main.site-main {
   text-transform: uppercase;
   color: #fff;
   margin: 0 0 0.3em;
+
 }
 
 .ed-masthead__brand-sub {
+
   margin: 0;
   font-size: 0.85em;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent-bright);
+
 }
 
 .ed-masthead__right {
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.4em;
   justify-self: end;
   max-width: 360px;
+
 }
 
 .ed-masthead__bio {
+
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
   font-size: 1.02em;
   line-height: 1.7;
+
 }
 
 .ed-masthead__social {
+
   display: flex;
   gap: 0.55em;
+
 }
 
 .ed-masthead__social a {
+
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -340,64 +426,84 @@ main.site-main {
   justify-content: center;
   color: var(--accent-bright);
   transition: all var(--transition-fast);
+
 }
 
 .ed-masthead__social a:hover {
+
   color: #fff;
-  background: rgba(241, 122, 122, 0.25);
-  border-color: rgba(241, 122, 122, 0.6);
+  background: rgba(249, 115, 22, 0.25);
+  border-color: rgba(249, 115, 22, 0.6);
   transform: translateY(-2px);
+
 }
 
 .ed-masthead__social svg {
+
   width: 15px;
   height: 15px;
+
 }
 
 .ed-masthead__social i[data-lucide] {
+
   width: 15px;
   height: 15px;
+
 }
 
 /* ---------- Featured hero article ---------- */
 
 .ed-feature {
+
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 3em;
   align-items: center;
   padding: 3.5em 0 3em;
   border-bottom: 2px solid var(--text-display);
+
 }
 
 .ed-feature__text {
+
   min-width: 0;
+
 }
 
 .ed-feature__title {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(1.7em, 3.4vw, 2.6em);
   line-height: 1.08;
   margin: 0 0 0.7em;
+
 }
 
 .ed-feature__title a {
+
   color: inherit;
+
 }
 
 .ed-feature__title a:hover {
+
   color: var(--accent-strong);
+
 }
 
 .ed-feature__dek {
+
   color: var(--text-muted);
   font-size: 1.06em;
   line-height: 1.7;
   margin: 0 0 1.3em;
+
 }
 
 .ed-meta-row {
+
   display: flex;
   align-items: center;
   gap: 0.9em;
@@ -405,46 +511,60 @@ main.site-main {
   margin-bottom: 1.6em;
   color: var(--text-subtle);
   font-size: 0.85em;
+
 }
 
 .ed-meta-row time {
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
+
 }
 
 .ed-feature__media {
+
   display: block;
   border: 2px solid var(--text-display);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-base);
+
 }
 
 .ed-feature__media:hover {
+
   transform: translateY(-3px);
+
 }
 
 .ed-feature__media img {
+
   width: 100%;
   height: 100%;
   object-fit: cover;
   aspect-ratio: 4 / 3;
   display: block;
+
 }
 
 /* ---------- "Have You Heard...?" — Latest Reviews tracklist ---------- */
 
 .ed-reviews {
+
   padding: 3em 0 2.5em;
+
 }
 
 .ed-reviews__grid {
+
   display: grid;
   grid-template-columns: 0.85fr 1.5fr;
   gap: 2.5em;
   align-items: stretch;
+
 }
 
 .ed-reviews__cover {
+
   background: var(--bg-deep);
   color: #fff;
   display: flex;
@@ -454,15 +574,19 @@ main.site-main {
   padding: 1.5em;
   min-height: 320px;
   border: 2px solid var(--bg-deep);
+
 }
 
 .ed-reviews__cover-top {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .ed-reviews__cover-top .logo-dot {
+
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -471,20 +595,26 @@ main.site-main {
   align-items: center;
   justify-content: center;
   color: #fff;
+
 }
 
 .ed-reviews__cover-top svg {
+
   width: 15px;
   height: 15px;
+
 }
 
 .ed-reviews__cover-top .cover-year {
+
   font-size: 0.72em;
   letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.55);
+
 }
 
 .ed-reviews__cover-big {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(2.4em, 6vw, 4.4em);
@@ -492,36 +622,46 @@ main.site-main {
   text-transform: uppercase;
   color: #fff;
   margin: 0;
+
 }
 
 .ed-reviews__cover-note {
+
   font-size: 0.8em;
   color: rgba(255, 255, 255, 0.62);
   letter-spacing: 0.04em;
   max-width: 240px;
   line-height: 1.6;
   margin: 0;
+
 }
 
 .ed-tracklist {
+
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 .ed-tracklist li {
+
   margin: 0;
   border-bottom: 1px solid var(--border);
+
 }
 
 .ed-tracklist li:last-child {
+
   border-bottom: none;
+
 }
 
 .ed-track {
+
   display: flex;
   align-items: center;
   gap: 1em;
@@ -529,22 +669,28 @@ main.site-main {
   text-decoration: none;
   color: var(--text);
   transition: background var(--transition-fast);
+
 }
 
 .ed-track:hover {
+
   background: var(--accent-soft);
   text-decoration: none;
+
 }
 
 .ed-track__num {
+
   font-size: 0.8em;
   color: var(--text-subtle);
   font-variant-numeric: tabular-nums;
   width: 1.6em;
   flex-shrink: 0;
+
 }
 
 .ed-track__play {
+
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -555,62 +701,80 @@ main.site-main {
   justify-content: center;
   flex-shrink: 0;
   transition: all var(--transition-fast);
+
 }
 
 .ed-track:hover .ed-track__play {
+
   background: var(--gradient-accent);
   color: #fff;
+
 }
 
 .ed-track__play svg {
+
   width: 12px;
   height: 12px;
   fill: currentColor;
   stroke: none;
+
 }
 
 .ed-track__body {
+
   min-width: 0;
   flex: 1;
+
 }
 
 .ed-track__title {
+
   display: block;
   font-weight: 600;
   font-size: 0.98em;
   line-height: 1.35;
+
 }
 
 .ed-track__meta {
+
   display: block;
   font-size: 0.76em;
   color: var(--text-subtle);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-top: 0.15em;
+
 }
 
 .ed-track__time {
+
   font-size: 0.8em;
   color: var(--text-subtle);
   white-space: nowrap;
   flex-shrink: 0;
+
 }
 
 /* ---------- Network & Affiliate Program spotlights ---------- */
 
 .ed-spotlight {
+
   padding: 2.5em 0;
+
 }
 
 .ed-spotlight__grid {
+
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: 1.5em;
   align-items: stretch;
+
 }
 
 .ed-spot-card {
+
   display: flex;
   flex-direction: column;
   border: 2px solid var(--text-display);
@@ -618,72 +782,94 @@ main.site-main {
   text-decoration: none;
   color: var(--text);
   transition: all var(--transition-base);
+
 }
 
 .ed-spot-card:hover {
+
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   text-decoration: none;
+
 }
 
 .ed-spot-card__media {
+
   aspect-ratio: 4 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid var(--text-display);
   overflow: hidden;
+
 }
 
 .ed-spot-card--tall .ed-spot-card__media {
+
   aspect-ratio: 16 / 9;
+
 }
 
 .ed-spot-card--dark .ed-spot-card__media {
+
   background: var(--bg-deep);
   color: #fff;
+
 }
 
 .ed-spot-card--salmon .ed-spot-card__media {
+
   background: linear-gradient(135deg, #F17A7A, #d4574c);
   color: #fff;
+
 }
 
 .ed-spot-card__media svg {
+
   width: 54px;
   height: 54px;
+
 }
 
 .ed-spot-card__body {
+
   padding: 1.4em 1.5em 1.7em;
   display: flex;
   flex-direction: column;
   gap: 0.85em;
   flex: 1;
+
 }
 
 .ed-spot-card__tags {
+
   display: flex;
   flex-wrap: wrap;
   gap: 0.4em;
+
 }
 
 .ed-spot-card__title {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.35em;
   line-height: 1.15;
   margin: 0;
+
 }
 
 .ed-spot-card__text {
+
   margin: 0;
   color: var(--text-muted);
   font-size: 0.94em;
   line-height: 1.65;
+
 }
 
 .ed-spot-card__more {
+
   margin-top: 0.5em;
   color: var(--accent-strong);
   font-weight: 600;
@@ -693,15 +879,19 @@ main.site-main {
   gap: 0.35em;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+
 }
 
 /* ---------- Newsletter ---------- */
 
 .ed-newsletter {
+
   padding: 2.5em 0;
+
 }
 
 .ed-newsletter__inner {
+
   border: 2px solid var(--text-display);
   background: var(--bg);
   padding: 2em;
@@ -709,24 +899,30 @@ main.site-main {
   grid-template-columns: 1fr auto;
   gap: 1.5em 2em;
   align-items: center;
+
 }
 
 .ed-newsletter__title {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(1.3em, 2.6vw, 1.9em);
   line-height: 1.1;
   margin: 0 0 0.3em;
+
 }
 
 .ed-newsletter__form {
+
   display: flex;
   gap: 0.6em;
   flex-wrap: wrap;
   justify-content: flex-end;
+
 }
 
 .ed-newsletter__form input[type="email"] {
+
   width: 260px;
   max-width: 100%;
   background: var(--bg);
@@ -735,35 +931,45 @@ main.site-main {
   padding: 0.78em 1.4em;
   color: var(--text);
   font-size: 0.95em;
+
 }
 
 .ed-newsletter__form input[type="email"]:focus {
+
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
   background: var(--bg);
+
 }
 
 .ed-newsletter__note {
+
   margin: 0;
   grid-column: 1 / -1;
   font-size: 0.82em;
   color: var(--text-subtle);
+
 }
 
 /* ---------- Must-Read reviews grid ---------- */
 
 .ed-grid-wrap {
+
   padding: 2.5em 0 3em;
+
 }
 
 .ed-grid {
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5em;
+
 }
 
 .ed-card {
+
   display: flex;
   flex-direction: column;
   border: 2px solid var(--text-display);
@@ -771,77 +977,97 @@ main.site-main {
   text-decoration: none;
   color: var(--text);
   transition: all var(--transition-base);
+
 }
 
 .ed-card:hover {
+
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   text-decoration: none;
+
 }
 
 .ed-card__media {
+
   display: block;
   aspect-ratio: 4 / 3;
   border-bottom: 2px solid var(--text-display);
   background: var(--bg-surface);
+
 }
 
 .ed-card__media img {
+
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+
 }
 
 .ed-card__body {
+
   padding: 1.2em 1.3em 1.5em;
   display: flex;
   flex-direction: column;
   gap: 0.7em;
   flex: 1;
+
 }
 
 .ed-card__tags {
+
   display: flex;
   flex-wrap: wrap;
   gap: 0.35em;
+
 }
 
 .ed-card__meta {
+
   font-size: 0.7em;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-subtle);
+
 }
 
 .ed-card__title {
+
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.2em;
   line-height: 1.2;
   margin: 0;
+
 }
 
 .ed-card__excerpt {
+
   margin: 0;
   color: var(--text-muted);
   font-size: 0.9em;
   line-height: 1.6;
+
 }
 
 /* ---------- Disclosure block ---------- */
 
 .ed-disclosure {
+
   border: 1px solid var(--border-medium);
   border-left: 4px solid var(--accent-strong);
   padding: 1.2em 1.4em;
   margin: 2em 0 0.5em;
   background: var(--bg-surface);
+
 }
 
 /* ---------- Responsive ---------- */
 
 @media (max-width: 860px) {
+
   .ed-masthead {
     margin-top: -1.75em;
     padding: 3em 1.25em 2.5em;
@@ -886,4 +1112,5 @@ main.site-main {
   .ed-newsletter__form {
     justify-content: flex-start;
   }
+
 }

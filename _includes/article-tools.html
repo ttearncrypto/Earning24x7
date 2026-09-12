@@ -1,0 +1,53 @@
+{%- assign tool_url = page.url | absolute_url -%}
+{%- assign tool_prompt = 'Summarize this article in 5 concise bullets, including the key points, the verdict, and why it matters: "' | append: page.title | append: '". Article URL: ' | append: tool_url -%}
+{%- assign tool_prompt_enc = tool_prompt | url_encode -%}
+
+<div class="article-tools" id="article-tools">
+  <div class="article-tools__row">
+    <span class="article-tools__label">Tools</span>
+    <div class="tool-group">
+      <button class="tool-btn tool-btn--icon" id="tool-font-dec" type="button" title="Decrease font size" aria-label="Decrease font size">
+        <i data-lucide="minus"></i><span class="tool-btn__key">A</span>
+      </button>
+      <button class="tool-btn tool-btn--icon" id="tool-font-inc" type="button" title="Increase font size" aria-label="Increase font size">
+        <i data-lucide="plus"></i><span class="tool-btn__key">A</span>
+      </button>
+      <span class="tool-group__val" id="tool-font-val">100%</span>
+    </div>
+
+    <span class="tool-sep" aria-hidden="true"></span>
+
+    <button class="tool-btn" id="tool-listen" type="button" title="Listen to this article (L)">
+      <i data-lucide="volume-2"></i><span class="tool-btn__label">Listen</span>
+    </button>
+    <button class="tool-btn" id="tool-print" type="button" title="Print this article (P)">
+      <i data-lucide="printer"></i><span class="tool-btn__label">Print</span>
+    </button>
+
+    <span class="tool-sep" aria-hidden="true"></span>
+
+    <div class="tool-dropdown">
+      <button class="tool-btn" id="tool-summarize" type="button" aria-haspopup="true" aria-expanded="false" title="Summarize this article with AI">
+        <i data-lucide="sparkles"></i><span class="tool-btn__label">Summarize</span>
+        <svg class="tool-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+      </button>
+      <div class="tool-dropdown__menu" id="tool-summarize-menu" role="menu" aria-label="Summarize with">
+        <span class="tool-dropdown__hint">Open in your favorite AI:</span>
+        <a role="menuitem" href="https://chatgpt.com/?q={{ tool_prompt_enc }}" target="_blank" rel="noopener noreferrer">ChatGPT</a>
+        <a role="menuitem" href="https://gemini.google.com/app?q={{ tool_prompt_enc }}" target="_blank" rel="noopener noreferrer">Google Gemini</a>
+        <a role="menuitem" href="https://www.perplexity.ai/search?q={{ tool_prompt_enc }}" target="_blank" rel="noopener noreferrer">Perplexity</a>
+        <a role="menuitem" href="https://claude.ai/new?q={{ tool_prompt_enc }}" target="_blank" rel="noopener noreferrer">Claude</a>
+        <a role="menuitem" href="https://copilot.microsoft.com/?q={{ tool_prompt_enc }}" target="_blank" rel="noopener noreferrer">Microsoft Copilot</a>
+      </div>
+    </div>
+
+    <button class="tool-btn" id="tool-copy-link" type="button" title="Copy link to this article">
+      <i data-lucide="copy"></i><span class="tool-btn__label">Copy link</span>
+    </button>
+    <button class="tool-btn" id="tool-shortcuts" type="button" title="Keyboard shortcuts (?)">
+      <i data-lucide="keyboard"></i><span class="tool-btn__label">Shortcuts</span>
+    </button>
+  </div>
+</div>
+
+<script type="application/json" id="tool-data">{"url":{{ tool_url | jsonify }},"title":{{ page.title | jsonify }}}</script>

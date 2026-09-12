@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Earning24x7 by TTEarnCrypto | Ad Network & Affiliate Program Reviews"
+title: "Ad Network & Affiliate Program Reviews"
 description: "Make money online: monetize your blog, website, or app. Compare the best advertising networks, discover high-paying affiliate programs, and implement proven strategies to maximize your earnings."
 author: "F9XR Review Board"
 image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
@@ -45,7 +45,7 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
     <a class="ed-btn" href="{{ feature.url | relative_url }}">Read the Full Review <i data-lucide="arrow-right"></i></a>
   </div>
   <a class="ed-feature__media ed-grain" href="{{ feature.url | relative_url }}">
-    <img src="{{ feature.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ feature.title }}" loading="eager">
+    <img src="{{ feature.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ feature.title }}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
   </a>
 </section>
 
@@ -164,7 +164,7 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
     {%- for post in site.posts -%}
     <a class="ed-card reveal-stagger" href="{{ post.url | relative_url }}">
       <span class="ed-card__media ed-grain">
-        <img src="{{ post.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="" loading="lazy">
+        <img src="{{ post.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ post.title }}" width="1200" height="630" loading="lazy" decoding="async">
       </span>
       <span class="ed-card__body">
         <span class="ed-card__tags">

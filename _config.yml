@@ -6,6 +6,7 @@ twitter_username: "ttearncrypto"
 github_username: "ttearncrypto"
 linkedin_username: "inakmm"
 lang: "en"
+timezone: "Asia/Kolkata"
 
 # Replace with your GA4 measurement ID (e.g. G-XXXXXXXXXX) to enable analytics
 # google_analytics: "G-XXXXXXXXXX"
@@ -25,6 +26,13 @@ social:
 
 exclude:
   - seo_audit_report.md
+  - README.md
+  - content-plan.md
+  - opencode.json
+  - read.txt
+  - todo.txt
+  - all-urls.txt
+  - article-urls.txt
   - Gemfile
   - Gemfile.lock
   - node_modules

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Blog Archive — All Reviews & Guides | Earning24x7"
+title: "Blog Archive: All Reviews & Guides"
 description: "Browse every ad network review, affiliate program guide, and money-making tutorial published on Earning24x7 by TTEarnCrypto."
 author: "F9XR Review Board"
 image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"

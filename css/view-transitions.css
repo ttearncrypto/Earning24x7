@@ -4,22 +4,30 @@
    ============================================================ */
 
 @view-transition {
+
   navigation: auto;
+
 }
 
 /* Universal root slide */
 ::view-transition-old(root),
 ::view-transition-new(root) {
+
   animation-duration: 480ms;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
 }
 
 ::view-transition-old(root) {
+
   animation-name: vtp-out;
+
 }
 
 ::view-transition-new(root) {
+
   animation-name: vtp-in;
+
 }
 
 @keyframes vtp-out {
@@ -46,7 +54,9 @@
 
 /* Page-load entrance — fade + scale */
 body.page-ready main.site-main {
+
   animation: page-entrance 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
 }
 
 @keyframes page-entrance {
@@ -62,32 +72,41 @@ body.page-ready main.site-main {
 
 /* Reveal-on-scroll — staggered by class */
 .js .reveal {
+
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
+
 }
 
 .js .reveal.visible {
+
   opacity: 1;
   transform: translateY(0);
+
 }
 
 /* Staggered reveals for grids */
 .js .reveal-stagger {
+
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
+
 }
 
 .js .reveal-stagger.visible {
+
   opacity: 1;
   transform: translateY(0);
+
 }
 
 /* Decorative element drift animation */
 @keyframes drift {
+
   0% {
     transform: translate(0, 0) scale(1);
   }
@@ -97,75 +116,36 @@ body.page-ready main.site-main {
   100% {
     transform: translate(-1%, 1%) scale(0.98);
   }
-}
 
-.orb {
-  animation: drift 12s ease-in-out infinite alternate;
-}
-
-.orb--blue {
-  animation-delay: 0s;
-}
-
-.orb--cyan {
-  animation-delay: -4s;
-}
-
-.orb--purple {
-  animation-delay: -8s;
 }
 
 /* Gradient shimmer for loading states */
 @keyframes shimmer {
+
   0% {
     background-position: -200% 0;
   }
   100% {
     background-position: 200% 0;
   }
-}
 
-.shimmer {
-  background: linear-gradient(90deg, var(--glass-bg) 0%, var(--glass-bg-medium) 50%, var(--glass-bg) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease infinite;
 }
 
 /* Glass hover glow */
 @keyframes glow-pulse {
+
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(241, 122, 122, 0);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
   }
   50% {
-    box-shadow: 0 0 30px rgba(241, 122, 122, 0.18);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.18);
   }
-}
 
-/* Gradient border on hover */
-.border-glow {
-  position: relative;
-}
-
-.border-glow::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(241, 122, 122, 0.7), rgba(212, 87, 76, 0.7), rgba(244, 179, 122, 0.7));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.border-glow:hover::before {
-  opacity: 1;
 }
 
 /* Reduced motion fallback */
 @media (prefers-reduced-motion: reduce) {
+
   ::view-transition-old(root),
   ::view-transition-new(root),
   body.page-ready main.site-main {
@@ -186,4 +166,5 @@ body.page-ready main.site-main {
   .shimmer {
     animation: none;
   }
+
 }

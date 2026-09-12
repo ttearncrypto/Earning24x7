@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Privacy Policy for Earning24x7 by TTEarnCrypto"
+title: "Privacy Policy for Earning24x7"
 description: "Read the Earning24x7 by TTEarnCrypto privacy policy covering data collection, cookies, advertising, analytics, and your rights."
 author: "F9XR Review Board"
 image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"

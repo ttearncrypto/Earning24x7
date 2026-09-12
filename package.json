@@ -1,0 +1,24 @@
+{
+  "name": "earning24x7",
+  "version": "1.0.0",
+  "description": "COMMING SOON",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttearncrypto/Earning24x7.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ttearncrypto/Earning24x7/issues"
+  },
+  "homepage": "https://github.com/ttearncrypto/Earning24x7#readme",
+  "dependencies": {
+    "sharp": "^0.35.4"
+  }
+}

@@ -1,5 +1,5 @@
 // Earning24x7 by TTEarnCrypto — Glassmorphism UI enhancements
-// View Transitions, reveal-on-scroll, search, back-to-top, mobile nav, filters
+// View Transitions, reveal-on-scroll, search, back-to-top, mobile nav
 
 (function () {
   "use strict";
@@ -113,35 +113,40 @@
   var navDrawer = document.getElementById("nav-drawer");
 
   if (navToggle && navDrawer) {
-    navToggle.addEventListener("click", function () {
-      var open = navDrawer.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open) {
+    function setDrawerState(open) {
+      var isOpen = !!open;
+      navDrawer.classList.toggle("open", isOpen);
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      if (isOpen) {
+        navDrawer.removeAttribute("inert");
         var firstLink = navDrawer.querySelector("a");
         if (firstLink) firstLink.focus();
+      } else {
+        navDrawer.setAttribute("inert", "");
       }
+    }
+
+    navToggle.addEventListener("click", function () {
+      setDrawerState(!navDrawer.classList.contains("open"));
     });
 
     document.addEventListener("click", function (event) {
       if (navDrawer.classList.contains("open") &&
           !navDrawer.contains(event.target) &&
           !navToggle.contains(event.target)) {
-        navDrawer.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
+        setDrawerState(false);
       }
     });
 
     navDrawer.addEventListener("click", function (event) {
       if (event.target.closest("a")) {
-        navDrawer.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
+        setDrawerState(false);
       }
     });
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && navDrawer.classList.contains("open")) {
-        navDrawer.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
+        setDrawerState(false);
       }
     });
   }
@@ -213,14 +218,27 @@
   }
 
   /* ============================================================
-     Back-to-top button
+     Back-to-top button with circular progress ring
      ============================================================ */
 
   var backToTop = document.getElementById("back-to-top");
+  var backToTopBar = document.getElementById("back-to-top-bar");
 
   if (backToTop) {
+    function setProgress(pct) {
+      if (!backToTopBar) return;
+      var r = parseFloat(backToTopBar.getAttribute("r"));
+      var c = 2 * Math.PI * r;
+      backToTopBar.style.strokeDasharray = c;
+      backToTopBar.style.strokeDashoffset = String(pct >= 100 ? 0 : c * (1 - pct / 100));
+    }
+
     function onScroll() {
-      var y = window.pageYOffset || document.documentElement.scrollTop;
+      var doc = document.documentElement;
+      var y = window.pageYOffset || doc.scrollTop;
+      var total = doc.scrollHeight - doc.clientHeight;
+      var pct = total > 0 ? (y / total) * 100 : 0;
+      setProgress(pct);
       if (y > 500) {
         backToTop.classList.add("visible");
       } else {
@@ -229,6 +247,7 @@
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     onScroll();
 
     backToTop.addEventListener("click", function () {
@@ -359,87 +378,6 @@
         if (searchModal.classList.contains("open")) closeSearch();
         else openSearch();
       }
-    });
-  }
-
-  /* ============================================================
-     Homepage: category filter pills
-     ============================================================ */
-
-  var filterPills = document.querySelectorAll(".filter-pill");
-  var articleBlocks = document.querySelectorAll(".article-block");
-
-  if (filterPills.length > 0) {
-    filterPills.forEach(function (pill) {
-      pill.addEventListener("click", function () {
-        filterPills.forEach(function (p) { p.classList.remove("active"); });
-        pill.classList.add("active");
-        var cat = pill.dataset.filter;
-        articleBlocks.forEach(function (block) {
-          if (cat === "all" || block.dataset.category === cat) {
-            block.hidden = false;
-          } else {
-            block.hidden = true;
-          }
-        });
-        currentlyShown = LOAD_STEP;
-        applyVisibility();
-      });
-    });
-  }
-
-  /* ============================================================
-     Homepage: Load More
-     ============================================================ */
-
-  var loadMoreBtn = document.getElementById("load-more");
-  var LOAD_STEP = 6;
-  var currentlyShown = LOAD_STEP;
-
-  function visibleBlocks() {
-    var out = [];
-    articleBlocks.forEach(function (b) {
-      if (!b.hidden) out.push(b);
-    });
-    return out;
-  }
-
-  function applyVisibility() {
-    var visible = visibleBlocks();
-    visible.forEach(function (b, i) {
-      b.style.display = i < currentlyShown ? "" : "none";
-    });
-    if (loadMoreBtn) {
-      loadMoreBtn.hidden = visible.length <= currentlyShown;
-    }
-  }
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", function () {
-      currentlyShown += LOAD_STEP;
-      applyVisibility();
-    });
-    applyVisibility();
-  }
-
-  /* ============================================================
-     Homepage: inline search within article grid
-     ============================================================ */
-
-  var homeSearch = document.getElementById("home-search-input");
-  if (homeSearch) {
-    homeSearch.addEventListener("input", function () {
-      var q = normalize(homeSearch.value);
-      articleBlocks.forEach(function (block) {
-        var hay = normalize((block.dataset.title || "") + " " + (block.dataset.desc || ""));
-        if (!q || hay.indexOf(q) !== -1) {
-          block.hidden = false;
-        } else {
-          block.hidden = true;
-        }
-      });
-      currentlyShown = LOAD_STEP;
-      applyVisibility();
     });
   }
 

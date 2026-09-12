@@ -7,6 +7,7 @@ image_width: 1200
 image_height: 630
 image_caption: "AdSense approval checklist for 2026"
 date: 2026-09-05
+category: blogs
 author: "F9XR Review Board"
 tags: [adsense approval, ai content, blog monetization, content strategy, google adsense 2026, E-E-A-T, website seo, small business blogging, scaled content abuse, digital presence]
 faq:

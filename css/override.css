@@ -752,11 +752,11 @@ main.site-main {
 .back-to-top {
 
   position: fixed;
-  right: 1.25em;
-  bottom: 1.5em;
+  right: 1em;
+  bottom: 1.25em;
   z-index: 60;
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid var(--glass-border);
   background: var(--glass-bg-medium);
@@ -829,8 +829,8 @@ main.site-main {
 
   position: relative;
   z-index: 1;
-  width: 17px;
-  height: 17px;
+  width: 14px;
+  height: 14px;
 
 }
 
@@ -2010,6 +2010,30 @@ label {
 
 }
 
+.post-figure {
+
+  margin: 1.6em 0;
+
+}
+
+.post-figure img {
+
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+.post-figure figcaption {
+
+  margin-top: 0.55em;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: var(--text-subtle);
+  text-align: center;
+
+}
+
 /* Disclosure / callout box */
 .disclosure-note {
 
@@ -2782,14 +2806,64 @@ pre:hover .copy-btn,
 .gt-widget .goog-te-gadget {
 
   color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+
+}
+
+.gt-widget .goog-te-gadget a {
+
+  color: var(--accent);
+  text-decoration: none;
 
 }
 
 .gt-widget .goog-te-combo {
 
-  margin: 4px 0;
-  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0.5em 2.1em 0.5em 0.75em;
   font-family: inherit;
+  font-size: 0.95em;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+  background-color: var(--glass-bg-medium);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6660' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em center;
+  background-size: 0.95em;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+
+}
+
+.gt-widget .goog-te-combo:hover {
+
+  border-color: rgba(249, 115, 22, 0.45);
+  background-color: #fff;
+
+}
+
+.gt-widget .goog-te-combo:focus {
+
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+
+}
+
+.gt-widget .goog-te-combo option {
+
+  color: var(--text);
+  background: #fff;
 
 }
 
@@ -3088,12 +3162,33 @@ pre:hover .copy-btn,
 
 }
 
-.rv-hero__logo svg {
+.rv-hero__logo svg,
+.rv-hero__logo img {
 
   display: block;
   width: 320px;
   height: auto;
   max-width: 100%;
+
+}
+
+.rv-hero__logo img {
+
+  width: 190px;
+  background: #fff;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 0.55em;
+
+}
+
+@media (max-width: 560px) {
+
+  .rv-hero__logo img {
+
+    width: 150px;
+
+  }
 
 }
 
@@ -3381,5 +3476,71 @@ pre:hover .copy-btn,
 .rv-alt__link:hover {
 
   text-decoration: underline;
+
+}
+
+/* ============================================================
+   Category chips (#news #reviews #blogs #offers)
+   Selectors deliberately use two classes each so they beat the
+   base .ed-pill / .post-tag rules loaded from editorial.css.
+   ============================================================ */
+
+.ed-pill--cat {
+
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+
+}
+
+.post-tag--cat {
+
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+
+}
+
+.post-tag--cat:hover {
+
+  background: rgba(0, 0, 0, 0.06);
+  border-color: inherit;
+  color: inherit;
+
+}
+
+.ed-pill--cat.cat-news,
+.post-tag--cat.cat-news {
+
+  color: #c2560b;
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.4);
+
+}
+
+.ed-pill--cat.cat-reviews,
+.post-tag--cat.cat-reviews {
+
+  color: #0e7490;
+  background: rgba(34, 211, 238, 0.16);
+  border-color: rgba(34, 211, 238, 0.5);
+
+}
+
+.ed-pill--cat.cat-blogs,
+.post-tag--cat.cat-blogs {
+
+  color: #3f6212;
+  background: rgba(163, 230, 53, 0.2);
+  border-color: rgba(163, 230, 53, 0.55);
+
+}
+
+.ed-pill--cat.cat-offers,
+.post-tag--cat.cat-offers {
+
+  color: #9d174d;
+  background: rgba(244, 114, 182, 0.15);
+  border-color: rgba(244, 114, 182, 0.5);
 
 }

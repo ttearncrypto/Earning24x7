@@ -58,8 +58,11 @@ layout: default
         <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a class="p-author h-card" href="{{ '/authors/f9xr-review-board.html' | relative_url }}" itemprop="name">{{ page.author }}</a></span>
       {%- endif -%}
     </p>
-    {%- if page.tags %}
+    {%- if page.tags or page.category %}
     <p class="post-tags">
+      {%- if page.category %}
+      <a class="post-tag post-tag--cat cat-{{ page.category | downcase }}" href="{{ '/archive.html' | relative_url }}#{{ page.category | downcase }}" rel="tag">#{{ page.category | downcase }}</a>
+      {%- endif %}
       <span class="post-tags__label">Tags:</span>
       {%- for tag in page.tags %}
       <a class="post-tag" href="{{ '/archive.html' | relative_url }}" rel="tag">{{ tag }}</a>

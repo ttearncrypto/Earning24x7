@@ -37,6 +37,7 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
     <h2 class="ed-feature__title"><a href="{{ feature.url | relative_url }}">{{ feature.title }}</a></h2>
     <p class="ed-feature__dek">{{ feature.description }}</p>
     <div class="ed-meta-row">
+      {%- include category-chip.html chip_post=feature -%}
       {%- if feature.tags.size > 0 -%}
       <span class="ed-pill">{{ feature.tags | first }}</span>
       {%- endif -%}
@@ -81,7 +82,7 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
           <span class="ed-track__play"><i data-lucide="play"></i></span>
           <span class="ed-track__body">
             <span class="ed-track__title">{{ post.title }}</span>
-            <span class="ed-track__meta">{% if post.tags.size > 0 %}{{ post.tags | first | capitalize }}{% else %}Review{% endif %} &middot; {{ post.date | date: "%Y" }}</span>
+            <span class="ed-track__meta">{% if post.category %}{% assign tcat = post.category | downcase %}#{{ tcat }}{% else %}Review{% endif %} &middot; {{ post.date | date: "%Y" }}</span>
           </span>
           <span class="ed-track__time">{{ post.date | date: "%b %d" }}</span>
         </a>
@@ -168,6 +169,7 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
       </span>
       <span class="ed-card__body">
         <span class="ed-card__tags">
+          {%- include category-chip.html chip_post=post -%}
           {%- for tag in post.tags limit: 2 -%}
           <span class="ed-pill">{{ tag }}</span>
           {%- endfor -%}

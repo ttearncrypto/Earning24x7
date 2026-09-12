@@ -49,6 +49,7 @@ image_caption: "Optional caption for the hero image"
 date: YYYY-MM-DD
 dateModified: YYYY-MM-DD  # optional, when updating
 author: "F9XR Review Board"
+category: blogs  # pick exactly one: news | reviews | blogs | offers
 tags: [Tag1, Tag2, Tag3]
 faq:
   - q: "Question?"
@@ -62,6 +63,7 @@ faq:
 - `description` must be **under 160 characters** (target 150-155). Include the target keyword. This appears in SEO meta, feeds, and JSON-LD.
 - `date` defaults to today unless specified
 - `tags` must be an array of 8-10 relevant tags. Include the target keyword as the first tag.
+- `category` must be EXACTLY one of `news`, `reviews`, `blogs`, or `offers`. Match your content to the closest bucket (ad network / program review → `reviews`; guide, tip, or tutorial → `blogs`; breaking industry news → `news`; featured deals / promotions → `offers`). The homepage shows this as a `#category` chip alongside the tags.
 - `faq` (optional) must have 3-5 entries derived from the article content, written as standalone snippet- and AI-answer-ready responses. The post layout (Step 5 reference below) renders them as a visible accordion plus FAQPage JSON-LD automatically.
 - The URL slug (from the filename) should be short, keyword-rich, and hyphenated
 - Default featured image is the branded template generated in Step 2b. If the user supplies a specific image URL, include attribution. Never reuse another post's hero and never hotlink an uncredited third-party image.

@@ -1,0 +1,5 @@
+{%- assign cc_post = include.chip_post -%}
+{%- if cc_post.category -%}
+{%- assign cc_name = cc_post.category | downcase -%}
+<span class="ed-pill ed-pill--cat cat-{{ cc_name }}">#{{ cc_name }}</span>
+{%- endif -%}

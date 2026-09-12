@@ -7,6 +7,7 @@ image_width: 1200
 image_height: 630
 image_caption: "Earning money while browsing the web"
 date: 2026-09-03
+category: blogs
 author: "F9XR Review Board"
 tags: [earn money online, search rewards, passive income tips, cashback extensions, small business tips, digital presence, local SEO, AI search engines, side income ideas, web browsing tips]
 faq:

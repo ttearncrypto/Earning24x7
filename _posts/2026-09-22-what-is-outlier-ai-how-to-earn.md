@@ -8,6 +8,7 @@ image_height: 630
 image_caption: "What is Outlier AI and how developers can earn from it"
 date: 2026-09-22
 author: "F9XR Review Board"
+category: blogs
 tags: [outlier ai, ai training jobs, rlhf, scale ai, side hustle for developers, ai annotation work, freelance coding gigs, work from home tech jobs, ai model training, remote developer income]
 faq:
   - q: "What is Outlier AI?"

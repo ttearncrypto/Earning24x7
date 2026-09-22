@@ -2,7 +2,7 @@
 layout: post
 title: "Outlier AI: Get Paid to Train Models"
 description: "What is Outlier AI and can developers actually earn from it? Real pay rates, task types, and how coders can qualify for the highest-paying gigs."
-image: "https://ttearncrypto.github.io/Earning24x7/assets/post-images/what-is-outlier-ai-how-to-earn.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/what-is-outlier-ai-how-to-earn.webp"
 image_width: 1200
 image_height: 630
 image_caption: "What is Outlier AI and how developers can earn from it"

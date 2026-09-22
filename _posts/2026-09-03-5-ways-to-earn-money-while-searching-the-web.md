@@ -2,7 +2,7 @@
 layout: post
 title: "5 Ways to Earn Money Searching Web"
 description: "Discover 5 real ways to earn money while searching the web, from cashback search engines to reward programs. Practical, low-effort income tips."
-image: "https://ttearncrypto.github.io/Earning24x7/assets/post-images/5-ways-to-earn-money-while-searching-the-web.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/5-ways-to-earn-money-while-searching-the-web.webp"
 image_width: 1200
 image_height: 630
 image_caption: "Earning money while browsing the web"

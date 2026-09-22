@@ -2,7 +2,7 @@
 layout: post
 title: "Welcome to Earning24x7: About Us"
 description: "Earning24x7 by TTEarnCrypto reviews ad networks, affiliate programs, and CPA networks. Learn who we are, how we rate, and the key terms you need to know."
-image: "https://ttearncrypto.github.io/Earning24x7/assets/post-images/welcome-to-earning24x7.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/welcome-to-earning24x7.webp"
 image_width: 1200
 image_height: 630
 date: 2026-09-01

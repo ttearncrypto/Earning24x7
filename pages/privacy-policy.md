@@ -3,13 +3,13 @@ layout: default
 title: "Privacy Policy for Earning24x7"
 description: "Read the Earning24x7 by TTEarnCrypto privacy policy covering data collection, cookies, advertising, analytics, and your rights."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>Privacy Policy for Earning24x7 by TTEarnCrypto</h1>
 
 <p><em>Last updated: September 1, 2026</em></p>
 
-<p>This Privacy Policy explains how Earning24x7 by TTEarnCrypto ("we", "us", "our") collects, uses, and protects information when you visit our website at <a href="https://ttearncrypto.github.io/Earning24x7/">https://ttearncrypto.github.io/Earning24x7/</a> (the "Site").</p>
+<p>This Privacy Policy explains how Earning24x7 by TTEarnCrypto ("we", "us", "our") collects, uses, and protects information when you visit our website at <a href="https://ttearncrypto.f9xr.org/Earning24x7/">https://ttearncrypto.f9xr.org/Earning24x7/</a> (the "Site").</p>
 
 <h2>Information We Collect</h2>
 <p>We keep data collection to the minimum needed to run the Site:</p>
@@ -29,7 +29,7 @@ image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
 <ul>
   <li>Google AdSense may, at times, serve advertisements on this Site. AdSense uses cookies to serve relevant ads and is governed by Google's own <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Privacy Policy</a>.</li>
   <li>Ad networks and affiliate programs we review may set cookies when you click a link to their site. We do not control their cookie practices.</li>
-  <li>Where applicable, we use <strong>Ads.txt</strong> to declare authorized digital sellers; you can view it at <a href="https://ttearncrypto.github.io/Earning24x7/ads.txt">Ads.txt</a>.</li>
+  <li>Where applicable, we use <strong>Ads.txt</strong> to declare authorized digital sellers; you can view it at <a href="https://ttearncrypto.f9xr.org/Earning24x7/ads.txt">Ads.txt</a>.</li>
 </ul>
 
 <h2>Third-Party Analytics</h2>

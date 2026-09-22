@@ -2,7 +2,7 @@
 layout: post
 title: "AdSense Approval 2026: AI Content"
 description: "Get approved for Google AdSense in 2026 even with AI assisted content. A practical checklist for business owners and startups."
-image: "https://ttearncrypto.github.io/Earning24x7/assets/post-images/adsense-approval-checklist-2026-ai-content.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/adsense-approval-checklist-2026-ai-content.webp"
 image_width: 1200
 image_height: 630
 image_caption: "AdSense approval checklist for 2026"

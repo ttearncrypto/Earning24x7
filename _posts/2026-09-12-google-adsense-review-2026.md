@@ -2,7 +2,7 @@
 layout: post
 title: "Google AdSense Review 2026"
 description: "An honest Google AdSense review for 2026: approval requirements, payment thresholds, revenue share, pros and cons, and the best alternatives."
-image: "https://ttearncrypto.github.io/Earning24x7/assets/post-images/google-adsense-review-2026.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/google-adsense-review-2026.webp"
 image_width: 1200
 image_height: 630
 image_caption: "Google AdSense review for 2026"

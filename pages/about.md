@@ -3,7 +3,7 @@ layout: default
 title: "About Earning24x7 by TTEarnCrypto"
 description: "Learn what Earning24x7 by TTEarnCrypto is, who runs it, how we review ad networks and affiliate programs, and how we keep our guides honest."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>About Earning24x7 by TTEarnCrypto</h1>
 

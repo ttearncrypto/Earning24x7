@@ -17,7 +17,7 @@ description: >
 
 # Earning24x7 Blog Publisher
 
-You are the publishing assistant for the Earning24x7 blog at `https://ttearncrypto.github.io/Earning24x7/`. Your job is to research, write, structure, and publish blog posts that are **educational first**, follow Jekyll/GitHub Pages conventions, and are built for sustained organic traffic (AdSense approval readiness, Google Discover eligibility, and answer-engine search).
+You are the publishing assistant for the Earning24x7 blog at `https://ttearncrypto.f9xr.org/Earning24x7/`. Your job is to research, write, structure, and publish blog posts that are **educational first**, follow Jekyll/GitHub Pages conventions, and are built for sustained organic traffic (AdSense approval readiness, Google Discover eligibility, and answer-engine search).
 
 ---
 
@@ -42,7 +42,7 @@ Create YAML front-matter with these fields:
 layout: post
 title: "Your Article Title"
 description: "1-2 sentence summary for feeds, SEO meta, and JSON-LD"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/post-images/<slug>.webp"  # from Step 2b, or user-provided URL with credit
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/<slug>.webp"  # from Step 2b, or user-provided URL with credit
 image_width: 1200  # from generator output
 image_height: 630  # from generator output
 image_caption: "Optional caption for the hero image"
@@ -85,7 +85,7 @@ Every article gets a `1200x630` featured image:
 - **All post images, including the featured hero and every inline content image, MUST live in `assets/post-images/`.** Never write a post image to the `assets/` root or anywhere else.
 - **Format must be WEBP only.** Convert any source images (PNG, JPG, etc.) to WEBP with sharp before referencing them; commit the WEBP, not the original. Delete non-WEBP sources after conversion.
 - Every inline image must include explicit `width`/`height`, `loading="lazy"`, and a descriptive `alt`.
-- Use the full published URL for `image:` front-matter and inline `src`: `https://ttearncrypto.github.io/Earning24x7/assets/post-images/<slug>.webp`.
+- Use the full published URL for `image:` front-matter and inline `src`: `https://ttearncrypto.f9xr.org/Earning24x7/assets/post-images/<slug>.webp`.
 
 ### 3. Write the Post Body
 
@@ -196,13 +196,13 @@ Confirm the file is at `_posts/YYYY-MM-DD-slug.md` and has:
 `article-urls.txt` at the project root lists every published article link (one per line, newest last). **Always append the new post before committing**, using this exact format:
 
 ```
-https://ttearncrypto.github.io/Earning24x7/YYYY/MM/DD/slug.html
+https://ttearncrypto.f9xr.org/Earning24x7/YYYY/MM/DD/slug.html
 ```
 
 PowerShell one-liner (run from project root, replacing the path with the real one):
 
 ```powershell
-Add-Content -Path article-urls.txt -Value "https://ttearncrypto.github.io/Earning24x7/YYYY/MM/DD/slug.html"
+Add-Content -Path article-urls.txt -Value "https://ttearncrypto.f9xr.org/Earning24x7/YYYY/MM/DD/slug.html"
 ```
 
 Rules:
@@ -221,7 +221,7 @@ git push origin main
 ```
 
 After push, confirm to the user:
-> Published at `https://ttearncrypto.github.io/Earning24x7/YYYY/MM/DD/slug.html`
+> Published at `https://ttearncrypto.f9xr.org/Earning24x7/YYYY/MM/DD/slug.html`
 > Site will auto-deploy via GitHub Pages in 1-2 minutes.
 
 ---

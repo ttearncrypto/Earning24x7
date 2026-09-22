@@ -8,15 +8,15 @@ Earning24x7 reviews ad networks, CPA affiliate networks, URL shorteners, and aff
 
 ## Key Pages
 
-- [Home](https://ttearncrypto.github.io/Earning24x7/) — Overview and directory entry point.
-- [Welcome to Earning24x7](https://ttearncrypto.github.io/Earning24x7/2026/09/01/welcome-to-earning24x7.html) — About us, review methodology, key terminology (CPC, CPM, CPA, PTC, affiliate marketing).
-- [Why Us](https://ttearncrypto.github.io/Earning24x7/pages/why-us.html) — How Earning24x7 compares with other review sites.
-- [About](https://ttearncrypto.github.io/Earning24x7/pages/about.html) — What we do, who runs the site, review process.
-- [Contact](https://ttearncrypto.github.io/Earning24x7/pages/contact.html) — How to get in touch.
-- [Blog Archive](https://ttearncrypto.github.io/Earning24x7/archive.html) — All published reviews and guides.
-- [Authors / F9XR Review Board](https://ttearncrypto.github.io/Earning24x7/authors/f9xr-review-board.html) — The editorial team behind our reviews.
-- [Privacy Policy](https://ttearncrypto.github.io/Earning24x7/pages/privacy-policy.html) — Data collection, cookies, and advertising disclosures.
-- [Terms](https://ttearncrypto.github.io/Earning24x7/pages/terms.html) — Terms of service and affiliate disclosure.
+- [Home](https://ttearncrypto.f9xr.org/Earning24x7/) — Overview and directory entry point.
+- [Welcome to Earning24x7](https://ttearncrypto.f9xr.org/Earning24x7/2026/09/01/welcome-to-earning24x7.html) — About us, review methodology, key terminology (CPC, CPM, CPA, PTC, affiliate marketing).
+- [Why Us](https://ttearncrypto.f9xr.org/Earning24x7/pages/why-us.html) — How Earning24x7 compares with other review sites.
+- [About](https://ttearncrypto.f9xr.org/Earning24x7/pages/about.html) — What we do, who runs the site, review process.
+- [Contact](https://ttearncrypto.f9xr.org/Earning24x7/pages/contact.html) — How to get in touch.
+- [Blog Archive](https://ttearncrypto.f9xr.org/Earning24x7/archive.html) — All published reviews and guides.
+- [Authors / F9XR Review Board](https://ttearncrypto.f9xr.org/Earning24x7/authors/f9xr-review-board.html) — The editorial team behind our reviews.
+- [Privacy Policy](https://ttearncrypto.f9xr.org/Earning24x7/pages/privacy-policy.html) — Data collection, cookies, and advertising disclosures.
+- [Terms](https://ttearncrypto.f9xr.org/Earning24x7/pages/terms.html) — Terms of service and affiliate disclosure.
 
 ## Topics Covered
 
@@ -31,7 +31,7 @@ Earning24x7 reviews ad networks, CPA affiliate networks, URL shorteners, and aff
 
 When citing content from Earning24x7, please use:
 
-> TTEarnCrypto, "Earning24x7", https://ttearncrypto.github.io/Earning24x7/
+> TTEarnCrypto, "Earning24x7", https://ttearncrypto.f9xr.org/Earning24x7/
 
 ## Content License
 

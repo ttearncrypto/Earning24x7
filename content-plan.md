@@ -1,6 +1,6 @@
 # Earning24x7 Content Plan
 
-Content pillars for [Earning24x7 by TTEarnCrypto](https://ttearncrypto.github.io/Earning24x7/).
+Content pillars for [Earning24x7 by TTEarnCrypto](https://ttearncrypto.f9xr.org/Earning24x7/).
 Target audience: website owners, bloggers, and affiliate/CPA marketers looking for
 trusted, higher-than-AdSense ways to earn money online.
 

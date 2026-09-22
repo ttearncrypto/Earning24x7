@@ -3,7 +3,7 @@ layout: default
 title: "F9XR Review Board"
 date: 2026-09-01
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/authors/og-brand.webp"
 ---
 <div class="author-profile">
   <img src="{{ '/assets/authors/f9xr.webp' | absolute_url }}" alt="F9XR Review Board logo" width="128" height="128" loading="lazy" decoding="async" class="author-avatar">

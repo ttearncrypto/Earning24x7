@@ -3,13 +3,13 @@ layout: default
 title: "Terms of Service & Affiliate Disclosure"
 description: "Read the Earning24x7 by TTEarnCrypto terms of service and affiliate disclosure covering accepted use, accuracy, earnings claims, and liability."
 author: "F9XR Review Board"
-image: "https://ttearncrypto.github.io/Earning24x7/assets/authors/og-brand.webp"
+image: "https://ttearncrypto.f9xr.org/Earning24x7/assets/authors/og-brand.webp"
 ---
 <h1>Terms of Service &amp; Affiliate Disclosure</h1>
 
 <p><em>Last updated: September 1, 2026</em></p>
 
-<p>These Terms of Service govern your use of the Earning24x7 by TTEarnCrypto website at <a href="https://ttearncrypto.github.io/Earning24x7/">https://ttearncrypto.github.io/Earning24x7/</a> (the "Site"). By using the Site, you agree to these terms.</p>
+<p>These Terms of Service govern your use of the Earning24x7 by TTEarnCrypto website at <a href="https://ttearncrypto.f9xr.org/Earning24x7/">https://ttearncrypto.f9xr.org/Earning24x7/</a> (the "Site"). By using the Site, you agree to these terms.</p>
 
 <h2>1. Acceptance of Terms</h2>
 <p>By accessing or using the Site, you agree to be bound by these Terms of Service. If you do not agree, please do not use the Site.</p>

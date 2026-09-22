@@ -1,7 +1,7 @@
 # SEO Audit Report — Earning24x7 by TTEarnCrypto
 
 **Date:** 2026-09-02 (v3 — post UI + build-fix audit)
-**Site:** https://ttearncrypto.github.io/Earning24x7/
+**Site:** https://ttearncrypto.f9xr.org/Earning24x7/
 **Stack:** Jekyll on GitHub Pages (custom layouts, minima base)
 
 ---

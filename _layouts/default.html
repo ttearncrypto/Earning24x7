@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#111111">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#111013">
 
   <script>
     (function () {
       try {
         var root = document.documentElement;
-        root.classList.add("theme-transition");
         root.classList.add("js");
-        root.setAttribute("data-theme", "light");
+        root.setAttribute("data-theme", "dark");
       } catch (e) {}
     })();
   </script>
@@ -63,10 +62,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ '/css/override.css' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ '/css/obido.css' | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ '/css/components.css' | relative_url }}">
   <link rel="stylesheet" type="text/css" href="{{ '/css/view-transitions.css' | relative_url }}">
-  <link rel="stylesheet" type="text/css" href="{{ '/css/editorial.css' | relative_url }}">
 
   {% feed_meta %}
 
@@ -75,9 +74,6 @@
   {%- endif %}
 
   <!-- highlight.js -->
-  <link rel="stylesheet" href="{{ '/js/highlightjs/styles/github.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/js/highlightjs/styles/ssms.css' | relative_url }}" />
-
   <script type="text/javascript" defer src="{{ '/js/highlightjs/highlight.min.js' | relative_url }}"></script>
   <script type="text/javascript" defer src="{{ '/js/highlightjs/languages/plaintext.min.js' | relative_url }}"></script>
   <script type="text/javascript" defer src="{{ '/js/highlightjs/languages/powershell.min.js' | relative_url }}"></script>
@@ -264,21 +260,35 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 
+  <!-- Top marquee banner -->
+  <div class="ob-banner" aria-hidden="true">
+    <div class="ob-banner__track">
+      <span class="ob-banner__item">
+        <span>New: ad network reviews every week <span class="ob-banner__dot">◆</span></span>
+        <span>Honest ratings on offers, payouts, tracking &amp; support <span class="ob-banner__dot">◆</span></span>
+        <span><a href="{{ '/archive.html' | relative_url }}">Browse the archive</a> <span class="ob-banner__dot">◆</span></span>
+        <span>High-CPM platforms &amp; affiliate programs, tested <span class="ob-banner__dot">◆</span></span>
+        <span><a href="{{ '/pages/contact.html' | relative_url }}">Submit a network</a> <span class="ob-banner__dot">◆</span></span>
+        <span>Monetization guides that actually help you earn <span class="ob-banner__dot">◆</span></span>
+      </span>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="site-header" role="banner">
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <a href="{{ '/' | relative_url }}" class="site-nav__brand">
         <img class="site-nav__logo" src="{{ '/assets/favicons/logo.png' | relative_url }}" alt="{{ site.title }}" width="878" height="440">
-        <span class="site-nav__brand-text">{{ site.title }}</span>
+        <span class="site-nav__brand-text">Earning<em>24x7</em></span>
       </a>
 
       <div class="site-nav__desktop" id="site-nav-desktop">
         <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/archive.html' | relative_url }}">Reviews</a>
         <a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a>
+        <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
         <a href="{{ '/pages/about.html' | relative_url }}">About</a>
         <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
-        <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
-        <a href="{{ '/archive.html' | relative_url }}">Archive</a>
       </div>
 
       <div class="nav-actions">
@@ -286,60 +296,71 @@
           <i data-lucide="search"></i>
         </button>
         <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span class="nav-toggle__label">Menu</span>
           <i data-lucide="menu"></i>
         </button>
       </div>
     </nav>
 
-    <!-- Mobile drawer -->
+    <!-- Slide-in drawer -->
     <div class="site-nav__drawer" id="nav-drawer" aria-label="Mobile navigation" inert>
-      <a href="{{ '/' | relative_url }}"><i data-lucide="house"></i> Home</a>
-      <a href="{{ '/pages/why-us.html' | relative_url }}"><i data-lucide="star"></i> Why Us</a>
-      <a href="{{ '/pages/about.html' | relative_url }}"><i data-lucide="info"></i> About</a>
-      <a href="{{ '/pages/contact.html' | relative_url }}"><i data-lucide="mail"></i> Contact</a>
-      <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}"><i data-lucide="users"></i> Authors</a>
-      <a href="{{ '/archive.html' | relative_url }}"><i data-lucide="archive"></i> Archive</a>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/archive.html' | relative_url }}">Reviews</a>
+      <a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a>
+      <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
+      <a href="{{ '/pages/about.html' | relative_url }}">About</a>
+      <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
+      <div class="drawer__foot">
+        <p>Independent reviews of ad networks &amp; affiliate programs.</p>
+        {% include social-icons.html %}
+      </div>
     </div>
   </header>
 
   <main id="main-content" class="site-main" role="main">
+    {%- if page.layout == 'home' -%}
+      {{ content }}
+    {%- else -%}
     <div class="page-content">
       {{ content }}
     </div>
+    {%- endif -%}
   </main>
 
   <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
-    <div class="site-footer__content">
-      <div class="site-footer__top">
-        <div class="site-footer__brand-col">
-          <p class="site-footer__brand">{{ site.title }}</p>
-          <p class="site-footer__tagline">Best AdSense Alternative Ad Network, Best Ad Network, Best Blogger Ad Network, High CPM Ad Network, Best URL Shortener, Best Link Shortener.</p>
-          <div class="site-footer__social">
-            {% include social-icons.html %}
-          </div>
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">Earning<em>24x7</em></p>
+          <p class="site-footer__tagline">Honest reviews of ad networks, affiliate programs, and monetization tools — rated on offers, payouts, tracking, and support.</p>
+          {% include social-icons.html %}
         </div>
 
         <nav class="site-footer__links" aria-label="Company links">
-          <span class="site-footer__links-title">Company</span>
+          <span class="site-footer__title">Company</span>
           <a href="{{ '/pages/about.html' | relative_url }}">About</a>
-          <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
           <a href="{{ '/authors/f9xr-review-board.html' | relative_url }}">Authors</a>
-        </nav>
-
-        <nav class="site-footer__links" aria-label="Legal links">
-          <span class="site-footer__links-title">Legal</span>
-          <a href="{{ '/pages/privacy-policy.html' | relative_url }}">Privacy Policy</a>
-          <a href="{{ '/pages/terms.html' | relative_url }}">Terms &amp; Disclosure</a>
-          <a href="{{ '/archive.html' | relative_url }}">Blog Archive</a>
+          <a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a>
+          <a href="{{ '/pages/contact.html' | relative_url }}">Contact</a>
         </nav>
 
         <nav class="site-footer__links" aria-label="Resources links">
-          <span class="site-footer__links-title">Resources</span>
-          <a href="{{ '/pages/why-us.html' | relative_url }}">Why Us</a>
-          <a href="{{ '/pages/contact.html' | relative_url }}">Submit a Network</a>
+          <span class="site-footer__title">Resources</span>
           <a href="{{ '/archive.html' | relative_url }}">All Reviews</a>
+          <a href="{{ '/archive.html' | relative_url }}#reviews">#reviews</a>
+          <a href="{{ '/archive.html' | relative_url }}#offers">#offers</a>
+          <a href="{{ '/archive.html' | relative_url }}#blogs">#blogs</a>
         </nav>
+
+        <div>
+          <span class="site-footer__title">Newsletter</span>
+          <form class="site-footer__news-form" action="{{ '/pages/contact.html' | relative_url }}" method="get">
+            <label class="visually-hidden" for="footer-news-email">Email address</label>
+            <input id="footer-news-email" type="email" name="subject" placeholder="Your email address" autocomplete="email" required>
+            <button class="ob-btn" type="submit">Subscribe <i data-lucide="arrow-right"></i></button>
+          </form>
+        </div>
       </div>
 
       <div class="site-footer__bottom">
@@ -354,7 +375,7 @@
     </div>
   </footer>
 
-  <!-- Search modal -->
+  <!-- Search overlay -->
   <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Site search">
     <div class="search-modal__panel">
       <div class="search-modal__input-wrap">
@@ -368,6 +389,15 @@
     </div>
   </div>
 
+  <!-- Cookies banner -->
+  <aside class="ob-cookies" aria-label="Cookie notice">
+    <p>We use cookies to improve your experience and analyze traffic. See our <a href="{{ '/pages/privacy-policy.html' | relative_url }}">privacy policy</a>.</p>
+    <div class="ob-cookies__row">
+      <button class="ob-cookies__btn ob-cookies__btn--accept" type="button" data-cookies="accepted">Accept</button>
+      <button class="ob-cookies__btn ob-cookies__btn--decline" type="button" data-cookies="declined">Decline</button>
+    </div>
+  </aside>
+
   <!-- Back to top -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top" type="button">
     <span class="back-to-top__progress" aria-hidden="true">
@@ -380,5 +410,6 @@
   </button>
 
   <script src="{{ '/js/view-transitions.js' | relative_url }}"></script>
+  <script src="{{ '/js/obido.js' | relative_url }}"></script>
 </body>
 </html>

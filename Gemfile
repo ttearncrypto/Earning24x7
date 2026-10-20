@@ -6,5 +6,5 @@ gem "faraday-retry"
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.1" if Gem.win_platform?
+# NOTE: the optional wdm watch-booster was dropped — it fails to compile on modern
+# Ruby/MSYS2 toolchains and is only a dev-loop performance nicety.

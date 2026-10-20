@@ -1,0 +1,287 @@
+---
+layout: default
+---
+{%- assign feature = site.posts | first -%}
+{%- assign slider_posts = site.posts | limit: 6 -%}
+{%- assign gallery_posts = site.posts | limit: 3 -%}
+{%- assign post_count = site.posts | size -%}
+
+<!-- ============ Hero ============ -->
+<section class="ob-hero reveal visible">
+  <div class="ob-hero__grid">
+    <div>
+      <p class="ob-overline">Ad Network &amp; Affiliate Program Reviews</p>
+      <h1 class="ob-hero__title">Honest reviews of<br>
+        <span class="ob-hero__type" data-typewriter='["ad networks","affiliate programs","high-CPM platforms","monetization tools"]'>ad networks<span class="ob-caret" aria-hidden="true"></span></span><br>
+        before you sign up.
+      </h1>
+      <p class="ob-hero__lead">Every network we cover is rated on Offers, Payout, Tracking, Support, and Overall — with real affiliate feedback and first-hand testing. No sponsored scores, no fluff.</p>
+      <div class="ob-hero__actions">
+        <a class="ob-btn" href="{{ '/archive.html' | relative_url }}">Browse All Reviews <i data-lucide="arrow-right"></i></a>
+        <a class="ob-btn ob-btn--ghost" href="{{ '/pages/why-us.html' | relative_url }}">Our Review Method</a>
+      </div>
+      <div class="ob-hero__meta">
+        <div class="ob-hero__meta-item">
+          <span class="ob-hero__meta-num">{{ post_count }}</span>
+          <span class="ob-hero__meta-label">Published reviews</span>
+        </div>
+        <div class="ob-hero__meta-item">
+          <span class="ob-hero__meta-num">5</span>
+          <span class="ob-hero__meta-label">Rating criteria</span>
+        </div>
+        <div class="ob-hero__meta-item">
+          <span class="ob-hero__meta-num">{{ site.time | date: "%Y" }}</span>
+          <span class="ob-hero__meta-label">Updated weekly</span>
+        </div>
+      </div>
+    </div>
+    {%- if feature -%}
+    <div class="ob-hero__media">
+      <a class="ob-hero__frame" href="{{ feature.url | relative_url }}">
+        <img src="{{ feature.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ feature.title }}" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+      </a>
+      <a class="ob-hero__badge" href="{{ feature.url | relative_url }}">
+        <span class="ob-hero__badge-title">{{ feature.title }}</span>
+        <span class="ob-hero__badge-tag">Latest</span>
+      </a>
+    </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<!-- ============ Center slider — latest reviews ============ -->
+{%- if slider_posts.size > 1 -%}
+<section class="ob-slider-section reveal">
+  <header class="ob-section-head">
+    <div>
+      <p class="ob-overline">Latest Reviews</p>
+      <h2 class="ob-section-head__title">Fresh off the desk</h2>
+    </div>
+    <div class="ob-slider__nav">
+      <button class="ob-slider__btn" type="button" data-slide-prev aria-label="Previous reviews"><i data-lucide="arrow-left"></i></button>
+      <button class="ob-slider__btn" type="button" data-slide-next aria-label="Next reviews"><i data-lucide="arrow-right"></i></button>
+    </div>
+  </header>
+  <div class="ob-slider" id="ob-slider">
+    {%- for post in slider_posts -%}
+    <a class="ob-slide" href="{{ post.url | relative_url }}">
+      <span class="ob-slide__media">
+        <img src="{{ post.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ post.title }}" width="600" height="338" loading="lazy" decoding="async">
+      </span>
+      <span class="ob-slide__body">
+        {%- include category-chip.html chip_post=post -%}
+        <span class="ob-slide__title">{{ post.title }}</span>
+        <span class="ob-slide__excerpt">{{ post.description | strip_html | truncate: 120 }}</span>
+      </span>
+    </a>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+<!-- ============ Criteria strip ============ -->
+<div class="ob-strip" aria-hidden="true">
+  <div class="ob-strip__track">
+    <span class="ob-strip__item">
+      <span>Offers <i>◆</i></span>
+      <span>Payout <i>◆</i></span>
+      <span>Tracking <i>◆</i></span>
+      <span>Support <i>◆</i></span>
+      <span>Overall <i>◆</i></span>
+      <span>No sponsored scores <i>◆</i></span>
+      <span>Real affiliate feedback <i>◆</i></span>
+      <span>First-hand testing <i>◆</i></span>
+    </span>
+  </div>
+</div>
+
+<!-- ============ Stats ============ -->
+<section class="ob-stats reveal">
+  <div class="ob-stat">
+    <p class="ob-stat__num">{{ post_count }}</p>
+    <p class="ob-stat__label">Reviews &amp; guides published</p>
+  </div>
+  <div class="ob-stat">
+    <p class="ob-stat__num">4</p>
+    <p class="ob-stat__label">Categories: news, reviews, blogs, offers</p>
+  </div>
+  <div class="ob-stat">
+    <p class="ob-stat__num">5<em>/5</em></p>
+    <p class="ob-stat__label">Criteria scored on every network</p>
+  </div>
+  <div class="ob-stat">
+    <p class="ob-stat__num">0<em>$</em></p>
+    <p class="ob-stat__label">Paid placements — ever</p>
+  </div>
+</section>
+
+<!-- ============ Two layout cards ============ -->
+<section class="ob-duo reveal">
+  <a class="ob-duo-card ob-duo-card--dark" href="{{ '/pages/why-us.html' | relative_url }}">
+    <span class="ob-duo-card__num">01 — Method</span>
+    <span class="ob-duo-card__title">How we test networks</span>
+    <span class="ob-duo-card__text">Before a network earns our rating, we test its offers, payouts, tracking, and support response. See the five criteria behind every score.</span>
+    <span class="ob-link-arrow">Our Review Method <i data-lucide="arrow-right"></i></span>
+  </a>
+  <a class="ob-duo-card ob-duo-card--lime" href="{{ '/pages/contact.html' | relative_url }}">
+    <span class="ob-duo-card__num">02 — Submit</span>
+    <span class="ob-duo-card__title">Run a network or program?</span>
+    <span class="ob-duo-card__text">Submit it for an independent review. We cover high-paying affiliate programs and ad networks readers actually ask about.</span>
+    <span class="ob-link-arrow">Submit a Network <i data-lucide="arrow-right"></i></span>
+  </a>
+</section>
+
+<!-- ============ CTA / newsletter cards ============ -->
+<section class="ob-cta-grid reveal">
+  <div class="ob-cta-card ob-cta-card--feature">
+    <p class="ob-overline">Newsletter</p>
+    <h2 class="ob-cta-card__title">Fresh reviews, straight to your inbox</h2>
+    <p class="ob-cta-card__text">One email when a new review drops. Nothing else.</p>
+    <ul class="ob-cta-card__list">
+      <li>New ad network &amp; affiliate program reviews</li>
+      <li>Monetization guides that actually help you earn</li>
+      <li>No spam. Unsubscribe anytime.</li>
+    </ul>
+    <form class="ob-cta-form" action="{{ '/pages/contact.html' | relative_url }}" method="get">
+      <label class="visually-hidden" for="hero-news-email">Email address</label>
+      <input id="hero-news-email" type="email" name="subject" placeholder="Your email address" autocomplete="email" required>
+      <button class="ob-btn" type="submit">Sign Up <i data-lucide="arrow-right"></i></button>
+    </form>
+    <p class="ob-cta-card__note">We only use your email to send new reviews.</p>
+  </div>
+  <div class="ob-cta-card">
+    <p class="ob-overline">Archive</p>
+    <h2 class="ob-cta-card__title">{{ post_count }} reviews and counting</h2>
+    <p class="ob-cta-card__text">Browse everything we've published, grouped by category: #news, #reviews, #blogs, and #offers — plus the full tag index.</p>
+    <a class="ob-btn ob-btn--ghost" href="{{ '/archive.html' | relative_url }}">Open the Archive <i data-lucide="arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ============ Tabs showcase ============ -->
+<section class="ob-tabs-section reveal">
+  <header class="ob-section-head">
+    <div>
+      <p class="ob-overline">Why Trust Us</p>
+      <h2 class="ob-section-head__title">Built on evidence, not ads</h2>
+    </div>
+  </header>
+  <div class="ob-tabs" data-tabs>
+    <div class="ob-tabs__btns" role="tablist" aria-label="Why trust Earning24x7">
+      <button class="ob-tabs__btn active" type="button" role="tab" aria-selected="true" data-tab="process">The Process</button>
+      <button class="ob-tabs__btn" type="button" role="tab" aria-selected="false" data-tab="ratings">The Ratings</button>
+      <button class="ob-tabs__btn" type="button" role="tab" aria-selected="false" data-tab="independence">Independence</button>
+    </div>
+    <div class="ob-tabs__panel ob-tabs__panel--text active" data-tab-panel="process" role="tabpanel">
+      <div class="ob-tabs__text">
+        <p class="ob-overline">The Process</p>
+        <h3>Research, sign-up, test, rate</h3>
+        <p>Every review starts with the network's actual offer catalog and payout terms, then a real sign-up and placement test. We track how long approvals take, whether tracking matches reality, and how support responds when something breaks.</p>
+        <a class="ob-link-arrow" href="{{ '/pages/why-us.html' | relative_url }}">See the full method <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="ob-tabs__panel ob-tabs__panel--text" data-tab-panel="ratings" role="tabpanel">
+      <div class="ob-tabs__text">
+        <p class="ob-overline">The Ratings</p>
+        <h3>Five criteria, every network</h3>
+        <p>Offers, Payout, Tracking, Support, and Overall — each scored out of five and shown as a bar breakdown inside every review, so you can see where a network is strong and where it falls short.</p>
+        <a class="ob-link-arrow" href="{{ '/archive.html' | relative_url }}">Browse rated networks <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="ob-tabs__panel ob-tabs__panel--text" data-tab-panel="independence" role="tabpanel">
+      <div class="ob-tabs__text">
+        <p class="ob-overline">Independence</p>
+        <h3>No sponsored scores, ever</h3>
+        <p>Nobody pays for a rating on Earning24x7. Some links are affiliate links — that's how the site stays free — but commissions never influence scores, and we say so in every article.</p>
+        <a class="ob-link-arrow" href="{{ '/pages/why-us.html' | relative_url }}">Read our promise <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Feature cards ============ -->
+<section class="ob-features reveal">
+  <div class="ob-features__card">
+    <span class="ob-features__icon"><i data-lucide="search-check"></i></span>
+    <span class="ob-features__num">01</span>
+    <h3 class="ob-features__title">Researched first-hand</h3>
+    <p class="ob-features__text">We sign up, place ads, and test payouts before writing a word. Screenshots and payment proof included where we have them.</p>
+  </div>
+  <div class="ob-features__card">
+    <span class="ob-features__icon"><i data-lucide="bar-chart-3"></i></span>
+    <span class="ob-features__num">02</span>
+    <h3 class="ob-features__title">Scored on five criteria</h3>
+    <p class="ob-features__text">Offers, Payout, Tracking, Support, Overall — the same rubric for every network, so comparisons are actually apples to apples.</p>
+  </div>
+  <div class="ob-features__card ob-features__card--purple">
+    <span class="ob-features__icon"><i data-lucide="shield-check"></i></span>
+    <span class="ob-features__num">03</span>
+    <h3 class="ob-features__title">Reader-first, always</h3>
+    <p class="ob-features__text">Affiliate links keep the lights on. They never buy a better score, a softer review, or a spot on the homepage.</p>
+  </div>
+</section>
+
+<!-- ============ Post grid ============ -->
+<section class="ob-posts-section reveal">
+  <header class="ob-section-head">
+    <div>
+      <p class="ob-overline">All Reviews</p>
+      <h2 class="ob-section-head__title">Must-read reviews</h2>
+    </div>
+    <a class="ob-link-arrow" href="{{ '/archive.html' | relative_url }}">All Reviews <i data-lucide="arrow-right"></i></a>
+  </header>
+  <div class="ob-posts">
+    {%- for post in site.posts -%}
+    <a class="ob-post-card reveal-stagger" href="{{ post.url | relative_url }}">
+      <span class="ob-post-card__media">
+        <img src="{{ post.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ post.title }}" width="600" height="315" loading="lazy" decoding="async">
+      </span>
+      <span class="ob-post-card__body">
+        <span class="ob-post-card__meta">
+          {%- include category-chip.html chip_post=post -%}
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+        </span>
+        <span class="ob-post-card__title">{{ post.title }}</span>
+        <span class="ob-post-card__excerpt">{{ post.description | strip_html | truncate: 110 }}</span>
+        <span class="ob-post-card__more ob-link-arrow">Read Review <i data-lucide="arrow-right"></i></span>
+      </span>
+    </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+<!-- ============ Parallax gallery ============ -->
+{%- if gallery_posts.size >= 3 -%}
+<section class="ob-gallery reveal" aria-label="Latest review covers">
+  <header class="ob-section-head">
+    <div>
+      <p class="ob-overline">From the Desk</p>
+      <h2 class="ob-section-head__title">Latest editions</h2>
+    </div>
+  </header>
+  <div class="ob-gallery__inner">
+    {%- for post in gallery_posts -%}
+    <a class="ob-gallery__item{% if forloop.first %} ob-gallery__item--wide{% endif %}" href="{{ post.url | relative_url }}" data-parallax="{{ forloop.index | times: 0.08 | plus: 0.08 }}">
+      <img src="{{ post.image | default: '/assets/authors/og-brand.webp' | relative_url }}" alt="{{ post.title }}" width="800" height="1000" loading="lazy" decoding="async">
+    </a>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+<!-- ============ CTA band ============ -->
+<section class="ob-cta-band reveal">
+  <div class="ob-cta-band__inner">
+    <div>
+      <h2 class="ob-cta-band__title">Ready to pick a network<br>that actually pays?</h2>
+      <p class="ob-cta-band__text">Start with the highest-rated reviews, or open the full archive and compare by category.</p>
+    </div>
+    <a class="ob-btn ob-btn--dark" href="{{ '/archive.html' | relative_url }}">Browse All Reviews <i data-lucide="arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- ============ Disclosure ============ -->
+<section class="page-content reveal" style="padding-top:3.5rem;padding-bottom:1rem;">
+  <p class="ob-overline">Affiliate Disclosure</p>
+  <p>Some of the links in our posts and pages may contain affiliate links. We may receive a commission when someone clicks the link and buys a product or service. You will not be charged extra for paying us commission.</p>
+  <p>Earning24x7 stands out for its honest, in-depth reviews on affiliate networks and ad platforms. Every guide is carefully researched, regularly updated, and designed to help you generate passive income, whether you have a website or not. Our expert insights empower you to avoid scams, focus on trusted partners, and grow income from day one.</p>
+</section>

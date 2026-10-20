@@ -40,29 +40,29 @@ const svg = `
 <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0f172a"/>
-      <stop offset="1" stop-color="#1e3a5f"/>
+      <stop offset="0" stop-color="#111013"/>
+      <stop offset="1" stop-color="#1a191f"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#3b82f6"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+      <stop offset="0" stop-color="#d1f470"/>
+      <stop offset="1" stop-color="#a8c94a"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <circle cx="1050" cy="120" r="220" fill="#3b82f6" opacity="0.15"/>
-  <circle cx="80" cy="560" r="180" fill="#22d3ee" opacity="0.12"/>
+  <circle cx="1050" cy="120" r="220" fill="#d1f470" opacity="0.08"/>
+  <circle cx="80" cy="560" r="180" fill="#d91842" opacity="0.08"/>
   <rect x="60" y="60" width="14" height="14" rx="3" fill="url(#accent)"/>
-  <text x="86" y="72" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#e2e8f0">EARNING</text>
-  <text x="86" y="90" font-family="Arial, sans-serif" font-size="20" fill="#22d3ee">24x7</text>
+  <text x="86" y="72" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#e6e5d7">EARNING</text>
+  <text x="86" y="90" font-family="Arial, sans-serif" font-size="20" fill="#d1f470">24x7</text>
   ${lines
     .map(
       (l, i) =>
-        `<text x="600" y="${lineStarts[i]}" text-anchor="middle" font-family="Arial, sans-serif" font-size="${l.size}" font-weight="bold" fill="url(#accent)">${esc(l.text)}</text>`
+        `<text x="600" y="${lineStarts[i]}" text-anchor="middle" font-family="Arial, sans-serif" font-size="${l.size}" font-weight="bold" fill="#e6e5d7">${esc(l.text)}</text>`
     )
     .join('\n  ')}
-  <text x="600" y="${lineStarts[lineStarts.length - 1] + 52}" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#cbd5e1">${esc(tagline)}</text>
+  <text x="600" y="${lineStarts[lineStarts.length - 1] + 52}" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#aaaaaa">${esc(tagline)}</text>
   <rect x="520" y="${lineStarts[lineStarts.length - 1] + 82}" width="160" height="6" rx="3" fill="url(#accent)"/>
-  <text x="600" y="${lineStarts[lineStarts.length - 1] + 200}" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#94a3b8">by TTEarnCrypto</text>
+  <text x="600" y="${lineStarts[lineStarts.length - 1] + 200}" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#7c7b70">by TTEarnCrypto</text>
 </svg>`;
 
 const tmpSvg = join(__dirname, 'featured.svg');
